@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer, staggerItem } from '../utils/animations';
 import { supabase } from '../lib/supabase';
 
 export default function Contact() {
@@ -44,121 +46,149 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const serviceAreas = [
+    'Multimodal Logistics (Sea, Air, Road)',
+    'Fuel & Energy Supply Solutions',
+    'China-Africa Trade & Import Services',
+    'Warehousing & Distribution',
+    'Supply Chain Management',
+  ];
+
   return (
-    <div>
-      <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-20">
+    <div className="overflow-x-hidden">
+      <motion.section
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+        className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-16 sm:py-20"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl sm:text-5xl font-bold mb-6">Contact Us</h1>
-            <p className="text-xl text-slate-300 leading-relaxed">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="max-w-3xl"
+          >
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">Contact Us</h1>
+            <p className="text-lg sm:text-xl text-slate-300 leading-relaxed">
               Let's secure your supply chain. Reach out to discuss your logistics requirements.
             </p>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
-      <section className="py-20 bg-white">
+      <section className="py-16 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div>
-              <h2 className="text-3xl font-bold text-slate-900 mb-6">Get in Touch</h2>
-              <p className="text-lg text-slate-700 leading-relaxed mb-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInLeft}
+            >
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-6">Get in Touch</h2>
+              <p className="text-base sm:text-lg text-slate-700 leading-relaxed mb-8">
                 Whether you need integrated logistics solutions, fuel supply services, or China-Africa trade support,
                 our team is ready to help you optimize your supply chain.
               </p>
 
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="bg-amber-500 rounded-lg p-3 flex-shrink-0">
-                    <MapPin className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-slate-900 mb-1">Our Locations</h3>
-                    <p className="text-slate-600">China, Kenya, South Sudan</p>
-                    <p className="text-sm text-slate-500 mt-2">
-                      Strategic offices across the China-Africa corridor for seamless coordination
-                    </p>
-                  </div>
-                </div>
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={staggerContainer}
+                className="space-y-6 mb-8 sm:mb-12"
+              >
+                {[
+                  { icon: MapPin, title: 'Our Locations', content: 'China, Kenya, South Sudan', detail: 'Strategic offices across the China-Africa corridor for seamless coordination' },
+                  { icon: Mail, title: 'Email', content: 'info@amirlogistics.com', detail: 'We respond to all inquiries within 24 hours' },
+                  { icon: Phone, title: 'Phone', content: 'Contact us for phone inquiries', detail: 'Available during business hours across all time zones' }
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    variants={staggerItem}
+                    whileHover={{ x: 8 }}
+                    className="flex items-start space-x-4"
+                  >
+                    <motion.div
+                      whileHover={{ rotate: 360, scale: 1.1 }}
+                      transition={{ duration: 0.6 }}
+                      className="bg-amber-500 rounded-lg p-3 flex-shrink-0"
+                    >
+                      <item.icon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
+                    </motion.div>
+                    <div>
+                      <h3 className="font-semibold text-slate-900 mb-1 text-sm sm:text-base">{item.title}</h3>
+                      <p className="text-slate-600 text-sm sm:text-base">{item.content}</p>
+                      <p className="text-xs sm:text-sm text-slate-500 mt-2">{item.detail}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="bg-amber-500 rounded-lg p-3 flex-shrink-0">
-                    <Mail className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-slate-900 mb-1">Email</h3>
-                    <p className="text-slate-600">info@amirlogistics.com</p>
-                    <p className="text-sm text-slate-500 mt-2">
-                      We respond to all inquiries within 24 hours
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="bg-amber-500 rounded-lg p-3 flex-shrink-0">
-                    <Phone className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-slate-900 mb-1">Phone</h3>
-                    <p className="text-slate-600">Contact us for phone inquiries</p>
-                    <p className="text-sm text-slate-500 mt-2">
-                      Available during business hours across all time zones
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-12 bg-slate-50 rounded-xl p-8 border border-slate-200">
-                <h3 className="font-semibold text-slate-900 mb-4">Service Areas</h3>
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeInUp}
+                className="bg-slate-50 rounded-xl p-6 sm:p-8 border border-slate-200"
+              >
+                <h3 className="font-semibold text-slate-900 mb-4 text-sm sm:text-base">Service Areas</h3>
                 <div className="space-y-3">
-                  <div className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-amber-500 mr-2 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-700">Multimodal Logistics (Sea, Air, Road)</span>
-                  </div>
-                  <div className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-amber-500 mr-2 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-700">Fuel & Energy Supply Solutions</span>
-                  </div>
-                  <div className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-amber-500 mr-2 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-700">China-Africa Trade & Import Services</span>
-                  </div>
-                  <div className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-amber-500 mr-2 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-700">Warehousing & Distribution</span>
-                  </div>
-                  <div className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-amber-500 mr-2 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-700">Supply Chain Management</span>
-                  </div>
+                  {serviceAreas.map((service, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.05 }}
+                      className="flex items-start"
+                    >
+                      <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-amber-500 mr-2 flex-shrink-0 mt-0.5" />
+                      <span className="text-xs sm:text-sm text-slate-700">{service}</span>
+                    </motion.div>
+                  ))}
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
-            <div>
-              <form onSubmit={handleSubmit} className="bg-slate-50 rounded-xl p-8 border border-slate-200">
-                <h3 className="text-2xl font-bold text-slate-900 mb-6">Send us a Message</h3>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInRight}
+            >
+              <form onSubmit={handleSubmit} className="bg-slate-50 rounded-xl p-6 sm:p-8 border border-slate-200">
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-6">Send us a Message</h3>
 
                 {status === 'success' && (
-                  <div className="mb-6 bg-green-50 border border-green-200 rounded-lg p-4 flex items-start">
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="mb-6 bg-green-50 border border-green-200 rounded-lg p-4 flex items-start"
+                  >
                     <CheckCircle className="h-5 w-5 text-green-600 mr-3 flex-shrink-0 mt-0.5" />
-                    <p className="text-green-800">
+                    <p className="text-green-800 text-sm sm:text-base">
                       Thank you for your message. We'll get back to you within 24 hours.
                     </p>
-                  </div>
+                  </motion.div>
                 )}
 
                 {status === 'error' && (
-                  <div className="mb-6 bg-red-50 border border-red-200 rounded-lg p-4">
-                    <p className="text-red-800">
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="mb-6 bg-red-50 border border-red-200 rounded-lg p-4"
+                  >
+                    <p className="text-red-800 text-sm sm:text-base">
                       There was an error submitting your message. Please try again.
                     </p>
-                  </div>
+                  </motion.div>
                 )}
 
-                <div className="space-y-6">
+                <div className="space-y-4 sm:space-y-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-2">
+                    <label htmlFor="name" className="block text-xs sm:text-sm font-medium text-slate-700 mb-2">
                       Full Name *
                     </label>
                     <input
@@ -168,13 +198,13 @@ export default function Contact() {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                      className="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent text-sm sm:text-base touch-manipulation"
                       placeholder="John Doe"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">
+                    <label htmlFor="email" className="block text-xs sm:text-sm font-medium text-slate-700 mb-2">
                       Email Address *
                     </label>
                     <input
@@ -184,13 +214,13 @@ export default function Contact() {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                      className="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent text-sm sm:text-base touch-manipulation"
                       placeholder="john@company.com"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-slate-700 mb-2">
+                    <label htmlFor="company" className="block text-xs sm:text-sm font-medium text-slate-700 mb-2">
                       Company / Organization
                     </label>
                     <input
@@ -199,13 +229,13 @@ export default function Contact() {
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                      className="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent text-sm sm:text-base touch-manipulation"
                       placeholder="Your Company"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-slate-700 mb-2">
+                    <label htmlFor="phone" className="block text-xs sm:text-sm font-medium text-slate-700 mb-2">
                       Phone Number
                     </label>
                     <input
@@ -214,13 +244,13 @@ export default function Contact() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                      className="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent text-sm sm:text-base touch-manipulation"
                       placeholder="+1 234 567 8900"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-2">
+                    <label htmlFor="message" className="block text-xs sm:text-sm font-medium text-slate-700 mb-2">
                       Message *
                     </label>
                     <textarea
@@ -230,28 +260,30 @@ export default function Contact() {
                       rows={6}
                       value={formData.message}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent resize-none"
+                      className="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent resize-none text-sm sm:text-base touch-manipulation"
                       placeholder="Tell us about your logistics requirements..."
                     />
                   </div>
 
-                  <button
+                  <motion.button
                     type="submit"
                     disabled={status === 'loading'}
-                    className="w-full bg-amber-500 text-white font-semibold py-4 px-6 rounded-lg hover:bg-amber-600 transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full bg-amber-500 text-white font-semibold py-3 sm:py-4 px-6 rounded-lg hover:bg-amber-600 transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center text-sm sm:text-base touch-manipulation"
                   >
                     {status === 'loading' ? (
                       'Sending...'
                     ) : (
                       <>
-                        <Send className="h-5 w-5 mr-2" />
+                        <Send className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
                         Send Message
                       </>
                     )}
-                  </button>
+                  </motion.button>
                 </div>
               </form>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>

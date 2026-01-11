@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Package } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,14 +19,16 @@ export default function Navigation() {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="bg-slate-900 text-white sticky top-0 z-50 shadow-lg">
+    <nav className="bg-slate-900 text-white sticky top-0 z-50 shadow-lg backdrop-blur-sm bg-opacity-95">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          <Link to="/" className="flex items-center space-x-3 group">
-            <Package className="h-8 w-8 text-amber-500 group-hover:text-amber-400 transition-colors" />
+        <div className="flex justify-between items-center h-16 sm:h-20">
+          <Link to="/" className="flex items-center space-x-2 sm:space-x-3 group">
+            <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }}>
+              <Package className="h-7 w-7 sm:h-8 sm:w-8 text-amber-500 group-hover:text-amber-400 transition-colors" />
+            </motion.div>
             <div>
-              <div className="text-xl font-bold tracking-tight">AMIR & CO: LOGISTICS</div>
-              <div className="text-xs text-slate-400">Amir Enterprises Ltd</div>
+              <div className="text-base sm:text-xl font-bold tracking-tight">AMIR & CO: LOGISTICS</div>
+              <div className="text-xs text-slate-400 hidden sm:block">Amir Enterprises Ltd</div>
             </div>
           </Link>
 
@@ -34,7 +37,7 @@ export default function Navigation() {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`px-4 py-2 rounded-lg font-medium transition-all ${
+                className={`px-3 lg:px-4 py-2 rounded-lg font-medium transition-all text-sm lg:text-base ${
                   isActive(item.path)
                     ? 'bg-amber-500 text-white'
                     : 'text-slate-300 hover:bg-slate-800 hover:text-white'
@@ -45,35 +48,51 @@ export default function Navigation() {
             ))}
           </div>
 
-          <button
+          <motion.button
+            whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-slate-800 transition-colors"
+            className="md:hidden p-2 rounded-lg hover:bg-slate-800 transition-colors touch-manipulation"
+            aria-label="Toggle menu"
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+          </motion.button>
         </div>
       </div>
 
-      {isOpen && (
-        <div className="md:hidden border-t border-slate-800">
-          <div className="px-4 py-4 space-y-2">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                onClick={() => setIsOpen(false)}
-                className={`block px-4 py-3 rounded-lg font-medium transition-all ${
-                  isActive(item.path)
-                    ? 'bg-amber-500 text-white'
-                    : 'text-slate-300 hover:bg-slate-800 hover:text-white'
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
-        </div>
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden border-t border-slate-800 overflow-hidden"
+          >
+            <div className="px-4 py-4 space-y-2">
+              {navItems.map((item, index) => (
+                <motion.div
+                  key={item.path}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.05 }}
+                >
+                  <Link
+                    to={item.path}
+                    onClick={() => setIsOpen(false)}
+                    className={`block px-4 py-3 rounded-lg font-medium transition-all touch-manipulation ${
+                      isActive(item.path)
+                        ? 'bg-amber-500 text-white'
+                        : 'text-slate-300 hover:bg-slate-800 hover:text-white active:bg-slate-700'
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

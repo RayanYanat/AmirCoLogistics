@@ -1,4 +1,6 @@
 import { Warehouse, MapPin, Package, CheckCircle, Boxes } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer, staggerItem } from '../utils/animations';
 
 export default function Warehousing() {
   const locations = [
@@ -39,39 +41,79 @@ export default function Warehousing() {
     },
   ];
 
+  const capabilities = [
+    'Rapid dispatch and delivery coordination',
+    'High-security storage for sensitive materials',
+    'Remote site delivery expertise',
+    'Real-time inventory tracking systems',
+    '24/7 operational support',
+    'Cross-docking and transloading services',
+  ];
+
   return (
-    <div>
-      <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-20">
+    <div className="overflow-x-hidden">
+      <motion.section
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+        className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-16 sm:py-20"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl sm:text-5xl font-bold mb-6">Warehousing & Infrastructure</h1>
-            <p className="text-xl text-slate-300 leading-relaxed">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="max-w-3xl"
+          >
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">Warehousing & Infrastructure</h1>
+            <p className="text-lg sm:text-xl text-slate-300 leading-relaxed">
               Strategic warehousing facilities across three countries with over 1 million liters of storage capacity.
             </p>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
-      <section className="py-20 bg-white">
+      <section className="py-16 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">Our Warehouse Network</h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="text-center mb-12 sm:mb-16"
+          >
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">Our Warehouse Network</h2>
+            <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
               Strategically positioned facilities across the China-Africa corridor for efficient distribution
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+            variants={staggerContainer}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16"
+          >
             {locations.map((location, index) => (
-              <div key={index} className="bg-slate-50 rounded-xl p-8 border border-slate-200 hover:shadow-lg transition-all">
-                <div className="flex items-center justify-center w-12 h-12 bg-amber-500 rounded-lg mb-6">
+              <motion.div
+                key={index}
+                variants={staggerItem}
+                whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                className="bg-slate-50 rounded-xl p-6 sm:p-8 border border-slate-200 hover:shadow-lg transition-all"
+              >
+                <motion.div
+                  whileHover={{ rotate: 360, scale: 1.1 }}
+                  transition={{ duration: 0.6 }}
+                  className="flex items-center justify-center w-12 h-12 bg-amber-500 rounded-lg mb-6"
+                >
                   <MapPin className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">{location.country}</h3>
+                </motion.div>
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-4">{location.country}</h3>
                 {location.facilities && (
                   <ul className="space-y-3">
                     {location.facilities.map((facility, idx) => (
-                      <li key={idx} className="flex items-start text-slate-700">
+                      <li key={idx} className="flex items-start text-sm sm:text-base text-slate-700">
                         <span className="text-amber-500 mr-2">•</span>
                         <span>{facility}</span>
                       </li>
@@ -83,127 +125,159 @@ export default function Warehousing() {
                     <p className="text-sm font-semibold text-slate-700 mb-3">Cities:</p>
                     <div className="flex flex-wrap gap-2">
                       {location.cities.map((city, idx) => (
-                        <span
+                        <motion.span
                           key={idx}
-                          className="px-3 py-1 bg-white rounded-full text-sm text-slate-700 border border-slate-200"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: idx * 0.05 }}
+                          className="px-3 py-1 bg-white rounded-full text-xs sm:text-sm text-slate-700 border border-slate-200"
                         >
                           {city}
-                        </span>
+                        </motion.span>
                       ))}
                     </div>
                   </div>
                 )}
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
-          <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-8 sm:p-12 text-white">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-              <div>
-                <div className="text-4xl font-bold text-amber-500 mb-2">1M+</div>
-                <div className="text-slate-300">Liters Storage Capacity</div>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-amber-500 mb-2">9</div>
-                <div className="text-slate-300">Strategic Locations</div>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-amber-500 mb-2">3</div>
-                <div className="text-slate-300">Countries Coverage</div>
-              </div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-6 sm:p-8 md:p-12 text-white"
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 text-center">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="text-3xl sm:text-4xl font-bold text-amber-500 mb-2">1M+</div>
+                <div className="text-sm sm:text-base text-slate-300">Liters Storage Capacity</div>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="text-3xl sm:text-4xl font-bold text-amber-500 mb-2">9</div>
+                <div className="text-sm sm:text-base text-slate-300">Strategic Locations</div>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="text-3xl sm:text-4xl font-bold text-amber-500 mb-2">3</div>
+                <div className="text-sm sm:text-base text-slate-300">Countries Coverage</div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      <section className="py-20 bg-slate-50">
+      <section className="py-16 sm:py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">Warehouse Services</h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="text-center mb-12 sm:mb-16"
+          >
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">Warehouse Services</h2>
+            <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
               Comprehensive value-added services to support your supply chain operations
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8"
+          >
             {services.map((service, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="bg-white rounded-xl p-8 border border-slate-200 hover:shadow-lg transition-all"
+                variants={staggerItem}
+                whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                className="bg-white rounded-xl p-6 sm:p-8 border border-slate-200 hover:shadow-lg transition-all"
               >
-                <div className="bg-amber-500 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
-                  <service.icon className="h-7 w-7 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">{service.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{service.description}</p>
-              </div>
+                <motion.div
+                  whileHover={{ rotate: 360, scale: 1.1 }}
+                  transition={{ duration: 0.6 }}
+                  className="bg-amber-500 w-12 h-12 sm:w-14 sm:h-14 rounded-lg flex items-center justify-center mb-6"
+                >
+                  <service.icon className="h-6 w-6 sm:h-7 sm:w-7 text-white" />
+                </motion.div>
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3">{service.title}</h3>
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed">{service.description}</p>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      <section className="py-20 bg-white">
+      <section className="py-16 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-slate-900 mb-6">South Sudan Operations</h2>
-              <p className="text-lg text-slate-700 leading-relaxed mb-6">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInLeft}
+            >
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-6">South Sudan Operations</h2>
+              <p className="text-base sm:text-lg text-slate-700 leading-relaxed mb-6">
                 Our extensive network across South Sudan enables rapid response and reliable delivery even in the most challenging locations.
               </p>
               <div className="space-y-4">
-                <div className="flex items-start">
-                  <CheckCircle className="h-6 w-6 text-amber-500 mr-3 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-semibold text-slate-900 mb-1">Lakes Region</h4>
-                    <p className="text-slate-600">Strategic coverage across the Lakes state</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <CheckCircle className="h-6 w-6 text-amber-500 mr-3 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-semibold text-slate-900 mb-1">Equatoria Region</h4>
-                    <p className="text-slate-600">Comprehensive operations in Equatoria</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <CheckCircle className="h-6 w-6 text-amber-500 mr-3 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-semibold text-slate-900 mb-1">Greater Bahr el Ghazal</h4>
-                    <p className="text-slate-600">Extensive infrastructure in Bahr el Ghazal region</p>
-                  </div>
-                </div>
+                {['Lakes Region', 'Equatoria Region', 'Greater Bahr el Ghazal'].map((region, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="flex items-start"
+                  >
+                    <CheckCircle className="h-5 w-5 sm:h-6 sm:w-6 text-amber-500 mr-3 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="font-semibold text-slate-900 mb-1 text-sm sm:text-base">{region}</h4>
+                      <p className="text-slate-600 text-xs sm:text-sm">Strategic coverage across the region</p>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
-            </div>
+            </motion.div>
 
-            <div className="bg-slate-50 rounded-xl p-8 border border-slate-200">
-              <h3 className="text-xl font-bold text-slate-900 mb-6">Key Capabilities</h3>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInRight}
+              className="bg-slate-50 rounded-xl p-6 sm:p-8 border border-slate-200"
+            >
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-6">Key Capabilities</h3>
               <ul className="space-y-4">
-                <li className="flex items-start text-slate-700">
-                  <span className="text-amber-500 font-bold mr-3">→</span>
-                  <span>Rapid dispatch and delivery coordination</span>
-                </li>
-                <li className="flex items-start text-slate-700">
-                  <span className="text-amber-500 font-bold mr-3">→</span>
-                  <span>High-security storage for sensitive materials</span>
-                </li>
-                <li className="flex items-start text-slate-700">
-                  <span className="text-amber-500 font-bold mr-3">→</span>
-                  <span>Remote site delivery expertise</span>
-                </li>
-                <li className="flex items-start text-slate-700">
-                  <span className="text-amber-500 font-bold mr-3">→</span>
-                  <span>Real-time inventory tracking systems</span>
-                </li>
-                <li className="flex items-start text-slate-700">
-                  <span className="text-amber-500 font-bold mr-3">→</span>
-                  <span>24/7 operational support</span>
-                </li>
-                <li className="flex items-start text-slate-700">
-                  <span className="text-amber-500 font-bold mr-3">→</span>
-                  <span>Cross-docking and transloading services</span>
-                </li>
+                {capabilities.map((capability, index) => (
+                  <motion.li
+                    key={index}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.05 }}
+                    className="flex items-start text-sm sm:text-base text-slate-700"
+                  >
+                    <span className="text-amber-500 font-bold mr-3">→</span>
+                    <span>{capability}</span>
+                  </motion.li>
+                ))}
               </ul>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
