@@ -9,7 +9,7 @@ export default function Experience() {
       icon: Award,
       metric: 4000000,
       suffix: '+',
-      label: 'Liters Delivered Annually',
+      label: 'Liters Delivered',
       description: 'Consistent fuel supply across multiple sectors',
     },
     {

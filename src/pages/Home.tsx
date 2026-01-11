@@ -36,7 +36,7 @@ export default function Home() {
   ];
 
   const stats = [
-    { value: 4000000, suffix: '+', label: 'Liters Delivered Annually' },
+    { value: 4000000, suffix: '+', label: 'Liters Delivered' },
     { value: 200, suffix: '+', label: 'Operational Sites' },
     { value: 8, suffix: '+', label: 'Years Experience' },
     { value: 3, suffix: '', label: 'Countries Coverage' },
@@ -198,14 +198,14 @@ export default function Home() {
                     whileHover={{ scale: 1.05 }}
                     className="bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/20 hover:bg-white/15 transition-all"
                   >
-                    <div className="text-3xl sm:text-4xl font-bold text-amber-500 mb-2">
+                    <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-amber-500 mb-2">
                       <AnimatedCounter
                         end={stat.value}
                         suffix={stat.suffix}
                         duration={2.5}
                       />
                     </div>
-                    <div className="text-xs sm:text-sm text-slate-300 leading-tight">{stat.label}</div>
+                    <div className="text-xs sm:text-sm text-slate-300 leading-tight break-words">{stat.label}</div>
                   </motion.div>
                 ))}
               </motion.div>
