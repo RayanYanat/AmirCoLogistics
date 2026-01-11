@@ -7,9 +7,9 @@ export default function Experience() {
   const achievements = [
     {
       icon: Award,
-      metric: 4000000,
-      suffix: '+',
-      label: 'Liters Delivered',
+      metric: 4,
+      suffix: 'M+',
+      label: 'Liters Delivered Annually',
       description: 'Consistent fuel supply across multiple sectors',
     },
     {
