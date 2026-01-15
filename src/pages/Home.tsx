@@ -47,8 +47,8 @@ export default function Home() {
       <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.pexels.com/photos/4481258/pexels-photo-4481258.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080"
-            alt="Global supply chain and international logistics operations"
+            src="https://images.pexels.com/photos/906494/pexels-photo-906494.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            alt="International container shipping port and logistics hub"
             className="w-full h-full object-cover opacity-30"
             loading="eager"
           />
