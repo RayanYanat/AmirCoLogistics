@@ -7,6 +7,7 @@ import Services from './pages/Services';
 import Warehousing from './pages/Warehousing';
 import Experience from './pages/Experience';
 import Contact from './pages/Contact';
+import LogoOptions from './pages/LogoOptions';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/warehousing" element={<Warehousing />} />
             <Route path="/experience" element={<Experience />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/logos" element={<LogoOptions />} />
           </Routes>
         </main>
         <Footer />
