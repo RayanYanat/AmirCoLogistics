@@ -53,7 +53,7 @@ export default function About() {
 
       <section className="py-16 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -82,8 +82,37 @@ export default function About() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
+              variants={fadeInRight}
+            >
+              <img
+                src="https://images.pexels.com/photos/1267338/pexels-photo-1267338.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Modern logistics operations and technology"
+                className="w-full h-[400px] object-cover rounded-2xl shadow-2xl"
+              />
+            </motion.div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInLeft}
+              className="order-2 lg:order-1"
+            >
+              <img
+                src="https://images.pexels.com/photos/4481259/pexels-photo-4481259.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Professional logistics team collaboration"
+                className="w-full h-[350px] object-cover rounded-2xl shadow-2xl"
+              />
+            </motion.div>
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
               variants={staggerContainer}
-              className="space-y-6 sm:space-y-8"
+              className="space-y-6 sm:space-y-8 order-1 lg:order-2"
             >
               <motion.div
                 variants={staggerItem}

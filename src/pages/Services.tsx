@@ -9,6 +9,8 @@ export default function Services() {
       icon: Ship,
       title: 'Integrated Transport & Multimodal Logistics',
       description: 'Comprehensive sea, air, and road transport solutions with origin-to-destination management.',
+      image: 'https://images.pexels.com/photos/1117210/pexels-photo-1117210.jpeg?auto=compress&cs=tinysrgb&w=800',
+      imageAlt: 'Cargo containers and multimodal transport',
       features: [
         'Sea freight forwarding',
         'Air cargo services',
@@ -23,6 +25,8 @@ export default function Services() {
       icon: Fuel,
       title: 'Fuel Supply & Energy Solutions',
       description: 'Specialized fuel supply chain management for telecom, industrial, and remote operations.',
+      image: 'https://images.pexels.com/photos/4386370/pexels-photo-4386370.jpeg?auto=compress&cs=tinysrgb&w=800',
+      imageAlt: 'Fuel tanker and energy supply operations',
       features: [
         'Bulk and retail fuel supply',
         'High-security site delivery',
@@ -37,6 +41,8 @@ export default function Services() {
       icon: Globe,
       title: 'China-Africa Trade & Import Solutions',
       description: 'Efficient LCL shared container services with transparent all-in pricing and quality control at source.',
+      image: 'https://images.pexels.com/photos/262353/pexels-photo-262353.jpeg?auto=compress&cs=tinysrgb&w=800',
+      imageAlt: 'International shipping containers at port',
       features: [
         'Shared Container (LCL) model',
         'China-based procurement agents',
@@ -51,6 +57,8 @@ export default function Services() {
       icon: Warehouse,
       title: 'Warehousing & Distribution',
       description: 'Strategic warehousing facilities across China, Kenya, and South Sudan with comprehensive value-added services.',
+      image: 'https://images.pexels.com/photos/4483610/pexels-photo-4483610.jpeg?auto=compress&cs=tinysrgb&w=800',
+      imageAlt: 'Modern warehouse facility with organized inventory',
       features: [
         'Multiple locations (China, Kenya, South Sudan)',
         'Over 1 million liters storage capacity',
@@ -64,6 +72,8 @@ export default function Services() {
       icon: Shield,
       title: 'Supply Chain & Regulatory Support',
       description: 'Expert guidance through complex regulatory environments and customs procedures.',
+      image: 'https://images.pexels.com/photos/8761579/pexels-photo-8761579.jpeg?auto=compress&cs=tinysrgb&w=800',
+      imageAlt: 'Professional logistics team reviewing documentation',
       features: [
         'Customs clearance and compliance',
         'Import/export documentation',
@@ -104,71 +114,86 @@ export default function Services() {
             {services.map((service, index) => (
               <div
                 key={index}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-start ${
-                  index % 2 === 1 ? 'lg:flex-row-reverse' : ''
-                }`}
+                className="space-y-8"
               >
-                <motion.div
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={index % 2 === 0 ? fadeInLeft : fadeInRight}
-                  className={index % 2 === 1 ? 'lg:order-2' : ''}
-                >
+                <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-start`}>
                   <motion.div
-                    whileHover={{ rotate: 360, scale: 1.1 }}
-                    transition={{ duration: 0.6 }}
-                    className="bg-gradient-to-br from-amber-500 to-amber-600 w-14 h-14 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center mb-6"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={index % 2 === 0 ? fadeInLeft : fadeInRight}
+                    className={index % 2 === 1 ? 'lg:order-2' : ''}
                   >
-                    <service.icon className="h-7 w-7 sm:h-8 sm:w-8 text-white" />
-                  </motion.div>
-                  <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">{service.title}</h2>
-                  <p className="text-base sm:text-lg text-slate-700 leading-relaxed mb-6">{service.description}</p>
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    className="bg-slate-50 rounded-lg p-4 sm:p-6 border border-slate-200"
-                  >
-                    <h3 className="font-semibold text-slate-900 mb-4 flex items-center text-sm sm:text-base">
-                      <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5 text-amber-500 mr-2" />
-                      Key Benefits
-                    </h3>
-                    <ul className="space-y-2">
-                      {service.features.slice(0, 3).map((feature, idx) => (
-                        <li key={idx} className="flex items-start text-sm sm:text-base text-slate-700">
-                          <span className="text-amber-500 mr-2">•</span>
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </motion.div>
-                </motion.div>
+                    <motion.div
+                      whileHover={{ rotate: 360, scale: 1.1 }}
+                      transition={{ duration: 0.6 }}
+                      className="bg-gradient-to-br from-amber-500 to-amber-600 w-14 h-14 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center mb-6"
+                    >
+                      <service.icon className="h-7 w-7 sm:h-8 sm:w-8 text-white" />
+                    </motion.div>
+                    <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">{service.title}</h2>
+                    <p className="text-base sm:text-lg text-slate-700 leading-relaxed mb-6">{service.description}</p>
 
-                <motion.div
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={index % 2 === 0 ? fadeInRight : fadeInLeft}
-                  className={index % 2 === 1 ? 'lg:order-1' : ''}
-                >
-                  <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-6 sm:p-8 text-white h-full">
-                    <h3 className="text-lg sm:text-xl font-bold mb-6">Service Features</h3>
-                    <div className="space-y-3">
-                      {service.features.map((feature, idx) => (
-                        <motion.div
-                          key={idx}
-                          initial={{ opacity: 0, x: -10 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: idx * 0.05, duration: 0.3 }}
-                          className="flex items-start"
-                        >
-                          <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-amber-500 mr-3 flex-shrink-0 mt-0.5" />
-                          <span className="text-sm sm:text-base text-slate-200">{feature}</span>
-                        </motion.div>
-                      ))}
+                    <motion.div
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
+                      variants={fadeInUp}
+                      className="mb-6"
+                    >
+                      <img
+                        src={service.image}
+                        alt={service.imageAlt}
+                        className="w-full h-[280px] object-cover rounded-xl shadow-lg"
+                      />
+                    </motion.div>
+
+                    <motion.div
+                      whileHover={{ scale: 1.02 }}
+                      className="bg-slate-50 rounded-lg p-4 sm:p-6 border border-slate-200"
+                    >
+                      <h3 className="font-semibold text-slate-900 mb-4 flex items-center text-sm sm:text-base">
+                        <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5 text-amber-500 mr-2" />
+                        Key Benefits
+                      </h3>
+                      <ul className="space-y-2">
+                        {service.features.slice(0, 3).map((feature, idx) => (
+                          <li key={idx} className="flex items-start text-sm sm:text-base text-slate-700">
+                            <span className="text-amber-500 mr-2">•</span>
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </motion.div>
+                  </motion.div>
+
+                  <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={index % 2 === 0 ? fadeInRight : fadeInLeft}
+                    className={index % 2 === 1 ? 'lg:order-1' : ''}
+                  >
+                    <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-6 sm:p-8 text-white h-full">
+                      <h3 className="text-lg sm:text-xl font-bold mb-6">Service Features</h3>
+                      <div className="space-y-3">
+                        {service.features.map((feature, idx) => (
+                          <motion.div
+                            key={idx}
+                            initial={{ opacity: 0, x: -10 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: idx * 0.05, duration: 0.3 }}
+                            className="flex items-start"
+                          >
+                            <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-amber-500 mr-3 flex-shrink-0 mt-0.5" />
+                            <span className="text-sm sm:text-base text-slate-200">{feature}</span>
+                          </motion.div>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
+                  </motion.div>
+                </div>
               </div>
             ))}
           </div>

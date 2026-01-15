@@ -91,6 +91,20 @@ export default function Warehousing() {
           <motion.div
             initial="hidden"
             whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="mb-12 sm:mb-16"
+          >
+            <img
+              src="https://images.pexels.com/photos/4246120/pexels-photo-4246120.jpeg?auto=compress&cs=tinysrgb&w=1600"
+              alt="Modern warehouse facility with organized logistics"
+              className="w-full h-[400px] object-cover rounded-2xl shadow-2xl"
+            />
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true, margin: '-50px' }}
             variants={staggerContainer}
             className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16"
@@ -223,7 +237,7 @@ export default function Warehousing() {
 
       <section className="py-16 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -259,7 +273,36 @@ export default function Warehousing() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeInRight}
-              className="bg-slate-50 rounded-xl p-6 sm:p-8 border border-slate-200"
+            >
+              <img
+                src="https://images.pexels.com/photos/1267360/pexels-photo-1267360.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Freight transport and distribution operations"
+                className="w-full h-[350px] object-cover rounded-2xl shadow-2xl"
+              />
+            </motion.div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInLeft}
+              className="order-2 lg:order-1"
+            >
+              <img
+                src="https://images.pexels.com/photos/6169668/pexels-photo-6169668.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Inventory management and warehouse operations"
+                className="w-full h-[350px] object-cover rounded-2xl shadow-2xl"
+              />
+            </motion.div>
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInRight}
+              className="bg-slate-50 rounded-xl p-6 sm:p-8 border border-slate-200 order-1 lg:order-2"
             >
               <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-6">Key Capabilities</h3>
               <ul className="space-y-4">

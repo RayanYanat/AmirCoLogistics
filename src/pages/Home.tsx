@@ -45,7 +45,14 @@ export default function Home() {
   return (
     <div className="overflow-x-hidden">
       <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMiI+PHBhdGggZD0iTTM2IDE2djhoLThWMTZoOHptLTE2IDB2OGgtOFYxNmg4em0xNiAxNnY4aC04di04aDh6bS0xNiAwdjhoLTh2LThoOHptMTYgMTZ2OGgtOHYtOGg4em0tMTYgMHY4aC04di04aDh6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-40"></div>
+        <div className="absolute inset-0">
+          <img
+            src="https://images.pexels.com/photos/906982/pexels-photo-906982.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            alt="Container port operations"
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900/95 via-slate-800/90 to-slate-900/95"></div>
+        </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 md:py-32">
           <div className="text-center max-w-4xl mx-auto">
@@ -144,6 +151,52 @@ export default function Home() {
               </motion.div>
             ))}
           </motion.div>
+        </div>
+      </section>
+
+      <section className="py-16 sm:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInLeft}
+              className="order-2 lg:order-1"
+            >
+              <img
+                src="https://images.pexels.com/photos/163726/belgium-antwerp-port-163726.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="International shipping operations"
+                className="w-full h-[400px] object-cover rounded-2xl shadow-2xl"
+              />
+            </motion.div>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInRight}
+              className="order-1 lg:order-2"
+            >
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                Global Logistics Network
+              </h2>
+              <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-6">
+                Our integrated multimodal transport network connects China to Africa through strategic partnerships and state-of-the-art logistics infrastructure. We manage every step of your supply chain with precision and reliability.
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-slate-50 rounded-lg p-4 border border-slate-200">
+                  <Ship className="h-8 w-8 text-amber-500 mb-2" />
+                  <h3 className="font-semibold text-slate-900 mb-1">Sea Freight</h3>
+                  <p className="text-sm text-slate-600">Global shipping solutions</p>
+                </div>
+                <div className="bg-slate-50 rounded-lg p-4 border border-slate-200">
+                  <Plane className="h-8 w-8 text-amber-500 mb-2" />
+                  <h3 className="font-semibold text-slate-900 mb-1">Air Cargo</h3>
+                  <p className="text-sm text-slate-600">Express delivery services</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
