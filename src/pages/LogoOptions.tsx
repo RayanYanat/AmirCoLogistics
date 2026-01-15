@@ -5,32 +5,37 @@ export default function LogoOptions() {
   const logos = [
     {
       id: 1,
-      name: 'Bold Lettermark',
-      description: 'Strong, professional lettermark with the A monogram representing authority and reliability',
+      name: 'Corporate Minimalist',
+      description: 'Clean lettermark with geometric precision, perfect for corporate identity',
       component: (
-        <div className="relative w-full h-64 flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-          <svg width="220" height="180" viewBox="0 0 220 180">
+        <div className="relative w-full h-64 flex items-center justify-center bg-white">
+          <svg width="280" height="180" viewBox="0 0 280 180">
             <defs>
-              <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style={{ stopColor: '#fbbf24', stopOpacity: 1 }} />
-                <stop offset="100%" style={{ stopColor: '#d97706', stopOpacity: 1 }} />
+              <linearGradient id="nav1" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style={{ stopColor: '#1e3a8a', stopOpacity: 1 }} />
+                <stop offset="100%" style={{ stopColor: '#1e40af', stopOpacity: 1 }} />
               </linearGradient>
             </defs>
+
+            {/* Icon: Abstract A with supply chain flow */}
             <path
-              d="M 70 100 L 90 40 L 110 100 M 75 85 L 105 85"
+              d="M 40 85 L 55 50 L 70 85 M 43 75 L 67 75"
               fill="none"
-              stroke="url(#goldGradient)"
-              strokeWidth="12"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+              stroke="url(#nav1)"
+              strokeWidth="3"
+              strokeLinecap="square"
             />
-            <text x="110" y="75" fill="#fbbf24" fontSize="24" fontWeight="900" fontFamily="Arial, sans-serif" letterSpacing="-1">
-              MIR
-            </text>
-            <text x="70" y="125" textAnchor="start" fill="#fff" fontSize="11" fontWeight="600" fontFamily="Arial, sans-serif" letterSpacing="3">
+            <circle cx="40" cy="85" r="2.5" fill="#1e3a8a" />
+            <circle cx="55" cy="50" r="2.5" fill="#1e3a8a" />
+            <circle cx="70" cy="85" r="2.5" fill="#1e3a8a" />
+
+            <line x1="75" y1="67.5" x2="85" y2="67.5" stroke="#94a3b8" strokeWidth="1" />
+
+            {/* Text */}
+            <text x="95" y="72" fill="#1e3a8a" fontSize="28" fontWeight="700" fontFamily="system-ui, -apple-system" letterSpacing="-0.5">
               AMIR & CO
             </text>
-            <text x="70" y="140" textAnchor="start" fill="#94a3b8" fontSize="9" fontFamily="Arial, sans-serif" letterSpacing="2">
+            <text x="95" y="85" fill="#64748b" fontSize="10" fontWeight="500" fontFamily="system-ui" letterSpacing="2.5">
               LOGISTICS
             </text>
           </svg>
@@ -39,30 +44,32 @@ export default function LogoOptions() {
     },
     {
       id: 2,
-      name: 'Classic Crest',
-      description: 'Traditional shield emblem design symbolizing trust and heritage in logistics',
+      name: 'Forward Motion',
+      description: 'Abstract arrow and container design symbolizing efficient logistics flow',
       component: (
-        <div className="relative w-full h-64 flex items-center justify-center bg-white">
-          <svg width="200" height="180" viewBox="0 0 200 180">
+        <div className="relative w-full h-64 flex items-center justify-center bg-slate-50">
+          <svg width="280" height="180" viewBox="0 0 280 180">
             <defs>
-              <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" style={{ stopColor: '#1e293b', stopOpacity: 1 }} />
-                <stop offset="100%" style={{ stopColor: '#334155', stopOpacity: 1 }} />
+              <linearGradient id="nav2" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style={{ stopColor: '#1e3a8a', stopOpacity: 1 }} />
+                <stop offset="100%" style={{ stopColor: '#3b82f6', stopOpacity: 1 }} />
               </linearGradient>
             </defs>
-            <path
-              d="M 100 30 L 140 45 L 140 90 Q 140 120, 100 140 Q 60 120, 60 90 L 60 45 Z"
-              fill="url(#shieldGrad)"
-              stroke="#d97706"
-              strokeWidth="3"
-            />
-            <text x="100" y="85" textAnchor="middle" fill="#fbbf24" fontSize="42" fontWeight="900" fontFamily="Georgia, serif">
-              A
-            </text>
-            <text x="100" y="155" textAnchor="middle" fill="#1e293b" fontSize="14" fontWeight="700" fontFamily="Arial, sans-serif" letterSpacing="1">
+
+            {/* Icon: Container with forward arrow */}
+            <rect x="30" y="55" width="35" height="28" fill="none" stroke="#1e3a8a" strokeWidth="2.5" rx="1" />
+            <line x1="38" y1="55" x2="38" y2="83" stroke="#1e3a8a" strokeWidth="1.5" />
+            <line x1="47" y1="55" x2="47" y2="83" stroke="#1e3a8a" strokeWidth="1.5" />
+            <line x1="56" y1="55" x2="56" y2="83" stroke="#1e3a8a" strokeWidth="1.5" />
+
+            <path d="M 65 69 L 78 69 L 78 63 L 88 69 L 78 75 L 78 69" fill="#3b82f6" />
+
+            <line x1="93" y1="69" x2="103" y2="69" stroke="#cbd5e1" strokeWidth="1.5" />
+
+            <text x="113" y="72" fill="#1e3a8a" fontSize="28" fontWeight="700" fontFamily="system-ui" letterSpacing="-0.5">
               AMIR & CO
             </text>
-            <text x="100" y="170" textAnchor="middle" fill="#64748b" fontSize="9" fontFamily="Arial, sans-serif" letterSpacing="2">
+            <text x="113" y="85" fill="#64748b" fontSize="10" fontWeight="500" fontFamily="system-ui" letterSpacing="2.5">
               LOGISTICS
             </text>
           </svg>
@@ -71,53 +78,52 @@ export default function LogoOptions() {
     },
     {
       id: 3,
-      name: 'Modern Wordmark',
-      description: 'Clean, contemporary typography with geometric accent for modern appeal',
+      name: 'Global Network',
+      description: 'Interconnected nodes representing worldwide logistics network',
       component: (
-        <div className="relative w-full h-64 flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100">
-          <div className="text-center">
-            <svg width="240" height="180" viewBox="0 0 240 180">
-              <rect x="20" y="55" width="8" height="45" fill="#d97706" rx="2" />
-              <rect x="32" y="45" width="8" height="55" fill="#f59e0b" rx="2" />
-              <rect x="44" y="35" width="8" height="65" fill="#fbbf24" rx="2" />
+        <div className="relative w-full h-64 flex items-center justify-center bg-white">
+          <svg width="280" height="180" viewBox="0 0 280 180">
+            {/* Icon: Network/supply chain nodes */}
+            <circle cx="35" cy="60" r="4" fill="#1e3a8a" />
+            <circle cx="55" cy="70" r="4" fill="#1e3a8a" />
+            <circle cx="60" cy="85" r="4" fill="#3b82f6" />
 
-              <text x="70" y="75" fill="#1e293b" fontSize="36" fontWeight="900" fontFamily="Arial, sans-serif" letterSpacing="-2">
-                AMIR
-              </text>
-              <text x="70" y="95" fill="#64748b" fontSize="18" fontWeight="600" fontFamily="Arial, sans-serif" letterSpacing="1">
-                & CO
-              </text>
-              <rect x="70" y="105" width="100" height="3" fill="#f59e0b" />
-              <text x="70" y="125" fill="#475569" fontSize="11" fontWeight="600" fontFamily="Arial, sans-serif" letterSpacing="4">
-                LOGISTICS
-              </text>
-            </svg>
-          </div>
+            <line x1="35" y1="60" x2="55" y2="70" stroke="#cbd5e1" strokeWidth="2" />
+            <line x1="55" y1="70" x2="60" y2="85" stroke="#cbd5e1" strokeWidth="2" />
+            <line x1="35" y1="60" x2="60" y2="85" stroke="#e2e8f0" strokeWidth="1.5" />
+
+            <line x1="70" y1="72.5" x2="85" y2="72.5" stroke="#e2e8f0" strokeWidth="1.5" />
+
+            <text x="95" y="75" fill="#1e3a8a" fontSize="28" fontWeight="700" fontFamily="system-ui" letterSpacing="-0.5">
+              AMIR & CO
+            </text>
+            <text x="95" y="88" fill="#64748b" fontSize="10" fontWeight="500" fontFamily="system-ui" letterSpacing="2.5">
+              LOGISTICS
+            </text>
+          </svg>
         </div>
       ),
     },
     {
       id: 4,
-      name: 'Cargo Container',
-      description: 'Iconic shipping container design representing global trade and logistics',
+      name: 'Monogram Icon',
+      description: 'Sophisticated monogram with subtle arrow element, works as app icon',
       component: (
-        <div className="relative w-full h-64 flex items-center justify-center bg-gradient-to-br from-blue-900 to-slate-900">
-          <svg width="240" height="180" viewBox="0 0 240 180">
-            <rect x="60" y="50" width="120" height="60" fill="#1e293b" stroke="#f59e0b" strokeWidth="4" rx="3" />
-            <line x1="60" y1="70" x2="180" y2="70" stroke="#475569" strokeWidth="2" />
-            <line x1="60" y1="90" x2="180" y2="90" stroke="#475569" strokeWidth="2" />
-            <line x1="90" y1="50" x2="90" y2="110" stroke="#475569" strokeWidth="2" />
-            <line x1="120" y1="50" x2="120" y2="110" stroke="#475569" strokeWidth="2" />
-            <line x1="150" y1="50" x2="150" y2="110" stroke="#475569" strokeWidth="2" />
-
-            <text x="120" y="85" textAnchor="middle" fill="#fbbf24" fontSize="20" fontWeight="900" fontFamily="Arial, sans-serif" letterSpacing="2">
-              AMIR
+        <div className="relative w-full h-64 flex items-center justify-center bg-slate-50">
+          <svg width="280" height="180" viewBox="0 0 280 180">
+            {/* Icon: Square monogram */}
+            <rect x="28" y="52" width="40" height="40" fill="#1e3a8a" rx="4" />
+            <text x="48" y="80" textAnchor="middle" fill="#fff" fontSize="24" fontWeight="700" fontFamily="system-ui">
+              A
             </text>
+            <path d="M 52 83 L 58 83 L 58 81 L 62 85 L 58 89 L 58 87 L 52 87" fill="rgba(255,255,255,0.7)" />
 
-            <text x="120" y="135" textAnchor="middle" fill="#fff" fontSize="13" fontWeight="700" fontFamily="Arial, sans-serif" letterSpacing="2">
+            <line x1="73" y1="72" x2="88" y2="72" stroke="#cbd5e1" strokeWidth="1.5" />
+
+            <text x="98" y="75" fill="#1e3a8a" fontSize="28" fontWeight="700" fontFamily="system-ui" letterSpacing="-0.5">
               AMIR & CO
             </text>
-            <text x="120" y="150" textAnchor="middle" fill="#94a3b8" fontSize="9" fontFamily="Arial, sans-serif" letterSpacing="2">
+            <text x="98" y="88" fill="#64748b" fontSize="10" fontWeight="500" fontFamily="system-ui" letterSpacing="2.5">
               LOGISTICS
             </text>
           </svg>
@@ -126,25 +132,22 @@ export default function LogoOptions() {
     },
     {
       id: 5,
-      name: 'Arrow Forward',
-      description: 'Dynamic arrow design representing forward movement and progress',
+      name: 'Typography Focus',
+      description: 'Pure typography solution with subtle geometric accent, ultimate versatility',
       component: (
         <div className="relative w-full h-64 flex items-center justify-center bg-white">
-          <svg width="220" height="180" viewBox="0 0 220 180">
-            <defs>
-              <linearGradient id="arrowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" style={{ stopColor: '#d97706', stopOpacity: 1 }} />
-                <stop offset="100%" style={{ stopColor: '#fbbf24', stopOpacity: 1 }} />
-              </linearGradient>
-            </defs>
-            <path
-              d="M 50 70 L 120 70 L 120 50 L 160 85 L 120 120 L 120 100 L 50 100 Z"
-              fill="url(#arrowGrad)"
-            />
-            <text x="110" y="142" textAnchor="middle" fill="#1e293b" fontSize="18" fontWeight="900" fontFamily="Arial, sans-serif" letterSpacing="2">
+          <svg width="280" height="180" viewBox="0 0 280 180">
+            {/* Minimal geometric accent */}
+            <rect x="35" y="65" width="3" height="18" fill="#1e3a8a" />
+            <rect x="41" y="60" width="3" height="23" fill="#3b82f6" />
+            <rect x="47" y="67" width="3" height="16" fill="#60a5fa" />
+
+            <line x1="55" y1="73.5" x2="70" y2="73.5" stroke="#e2e8f0" strokeWidth="1.5" />
+
+            <text x="80" y="76" fill="#1e3a8a" fontSize="30" fontWeight="700" fontFamily="system-ui" letterSpacing="-0.5">
               AMIR & CO
             </text>
-            <text x="110" y="160" textAnchor="middle" fill="#64748b" fontSize="10" fontFamily="Arial, sans-serif" letterSpacing="3">
+            <text x="80" y="90" fill="#64748b" fontSize="10" fontWeight="500" fontFamily="system-ui" letterSpacing="2.5">
               LOGISTICS
             </text>
           </svg>
@@ -153,63 +156,55 @@ export default function LogoOptions() {
     },
     {
       id: 6,
-      name: 'Circle Badge',
-      description: 'Professional circular badge design with established company feel',
+      name: 'Stacked Monochrome',
+      description: 'Elegant stacked layout, perfect for monochrome use and small spaces',
       component: (
-        <div className="relative w-full h-64 flex items-center justify-center bg-gradient-to-br from-slate-900 to-slate-800">
+        <div className="relative w-full h-64 flex items-center justify-center bg-slate-50">
           <svg width="200" height="180" viewBox="0 0 200 180">
-            <circle cx="100" cy="85" r="60" fill="none" stroke="#fbbf24" strokeWidth="5" />
-            <circle cx="100" cy="85" r="52" fill="none" stroke="#f59e0b" strokeWidth="2" opacity="0.4" />
+            <g transform="translate(100, 90)">
+              {/* Icon above text */}
+              <rect x="-20" y="-50" width="40" height="35" fill="none" stroke="#1e3a8a" strokeWidth="2.5" rx="2" />
+              <line x1="-12" y1="-50" x2="-12" y2="-15" stroke="#1e3a8a" strokeWidth="1.5" />
+              <line x1="-4" y1="-50" x2="-4" y2="-15" stroke="#1e3a8a" strokeWidth="1.5" />
+              <line x1="4" y1="-50" x2="4" y2="-15" stroke="#1e3a8a" strokeWidth="1.5" />
+              <line x1="12" y1="-50" x2="12" y2="-15" stroke="#1e3a8a" strokeWidth="1.5" />
 
-            <text x="100" y="75" textAnchor="middle" fill="#fbbf24" fontSize="32" fontWeight="900" fontFamily="Arial, sans-serif">
-              AMIR
-            </text>
-            <text x="100" y="92" textAnchor="middle" fill="#fff" fontSize="14" fontWeight="600" fontFamily="Arial, sans-serif" letterSpacing="1">
-              & CO
-            </text>
-
-            <path
-              d="M 60 105 Q 100 108, 140 105"
-              fill="none"
-              stroke="#f59e0b"
-              strokeWidth="2"
-            />
-
-            <text x="100" y="120" textAnchor="middle" fill="#94a3b8" fontSize="9" fontFamily="Arial, sans-serif" letterSpacing="2">
-              LOGISTICS
-            </text>
-
-            <text x="100" y="160" textAnchor="middle" fill="#64748b" fontSize="8" fontFamily="Arial, sans-serif" letterSpacing="1">
-              AMIR ENTERPRISES LTD
-            </text>
+              <text x="0" y="0" textAnchor="middle" fill="#1e3a8a" fontSize="24" fontWeight="700" fontFamily="system-ui" letterSpacing="-0.5">
+                AMIR & CO
+              </text>
+              <text x="0" y="13" textAnchor="middle" fill="#64748b" fontSize="9" fontWeight="500" fontFamily="system-ui" letterSpacing="2.5">
+                LOGISTICS
+              </text>
+            </g>
           </svg>
         </div>
       ),
     },
     {
       id: 7,
-      name: 'Globe Routes',
-      description: 'World map with connecting routes symbolizing international logistics network',
+      name: 'Premium Geometric',
+      description: 'Sophisticated hexagonal badge with minimal design, excellent for luxury branding',
       component: (
-        <div className="relative w-full h-64 flex items-center justify-center bg-gradient-to-br from-blue-50 to-slate-50">
-          <svg width="220" height="180" viewBox="0 0 220 180">
-            <circle cx="110" cy="70" r="45" fill="none" stroke="#334155" strokeWidth="3" />
-            <ellipse cx="110" cy="70" rx="45" ry="20" fill="none" stroke="#334155" strokeWidth="2" opacity="0.3" />
-            <ellipse cx="110" cy="70" rx="20" ry="45" fill="none" stroke="#334155" strokeWidth="2" opacity="0.3" />
-            <line x1="110" y1="25" x2="110" y2="115" stroke="#334155" strokeWidth="1" opacity="0.3" />
-            <line x1="65" y1="70" x2="155" y2="70" stroke="#334155" strokeWidth="1" opacity="0.3" />
+        <div className="relative w-full h-64 flex items-center justify-center bg-white">
+          <svg width="280" height="180" viewBox="0 0 280 180">
+            {/* Icon: Hexagon with centered element */}
+            <polygon
+              points="48,58 62,50 76,58 76,74 62,82 48,74"
+              fill="none"
+              stroke="#1e3a8a"
+              strokeWidth="2.5"
+            />
+            <polygon
+              points="56,62 62,59 68,62 68,70 62,73 56,70"
+              fill="#3b82f6"
+            />
 
-            <circle cx="90" cy="55" r="3" fill="#f59e0b" />
-            <circle cx="130" cy="85" r="3" fill="#f59e0b" />
-            <circle cx="110" cy="70" r="3" fill="#d97706" />
+            <line x1="81" y1="66" x2="96" y2="66" stroke="#cbd5e1" strokeWidth="1.5" />
 
-            <path d="M 90 55 Q 100 62, 110 70" fill="none" stroke="#f59e0b" strokeWidth="2" strokeDasharray="2,2" />
-            <path d="M 110 70 Q 120 77, 130 85" fill="none" stroke="#f59e0b" strokeWidth="2" strokeDasharray="2,2" />
-
-            <text x="110" y="140" textAnchor="middle" fill="#1e293b" fontSize="18" fontWeight="900" fontFamily="Arial, sans-serif" letterSpacing="1">
+            <text x="106" y="69" fill="#1e3a8a" fontSize="28" fontWeight="700" fontFamily="system-ui" letterSpacing="-0.5">
               AMIR & CO
             </text>
-            <text x="110" y="156" textAnchor="middle" fill="#64748b" fontSize="10" fontFamily="Arial, sans-serif" letterSpacing="3">
+            <text x="106" y="82" fill="#64748b" fontSize="10" fontWeight="500" fontFamily="system-ui" letterSpacing="2.5">
               LOGISTICS
             </text>
           </svg>
@@ -233,9 +228,9 @@ export default function LogoOptions() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="max-w-3xl"
           >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">Logo Design Options</h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">Premium Logo Concepts</h1>
             <p className="text-lg sm:text-xl text-slate-300 leading-relaxed">
-              Professional logo concepts for Amir & Co: Logistics, reflecting your expertise in supply chain management, warehousing, and global trade.
+              Minimalist, corporate-focused logo designs for Amir & Co: Logistics. Each concept emphasizes clean lines, professional typography, and versatile scalability for modern brand applications.
             </p>
           </motion.div>
         </div>
@@ -278,30 +273,36 @@ export default function LogoOptions() {
             viewport={{ once: true }}
             variants={fadeInUp}
           >
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">Design Notes</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">Design Philosophy</h2>
             <div className="bg-slate-50 rounded-xl p-6 sm:p-8 text-left space-y-4">
               <div className="flex items-start">
-                <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                 <p className="text-slate-700">
-                  <strong className="text-slate-900">Color Palette:</strong> Primary colors include slate/charcoal for professionalism and amber/orange for energy and reliability
+                  <strong className="text-slate-900">Professional Color Palette:</strong> Navy blue (#1e3a8a) and gray tones convey trust, stability, and corporate sophistication. Optional blue accent (#3b82f6) adds subtle energy.
                 </p>
               </div>
               <div className="flex items-start">
-                <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                 <p className="text-slate-700">
-                  <strong className="text-slate-900">Symbolism:</strong> Each design incorporates elements representing connectivity, global reach, logistics networks, or forward movement
+                  <strong className="text-slate-900">Minimalist Approach:</strong> Clean geometric forms and restrained symbolism create timeless, premium appeal without decorative excess.
                 </p>
               </div>
               <div className="flex items-start">
-                <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                 <p className="text-slate-700">
-                  <strong className="text-slate-900">Versatility:</strong> All logos are designed to work across digital and print media, from business cards to vehicle branding
+                  <strong className="text-slate-900">Monochrome Ready:</strong> All designs work perfectly in single-color applications for maximum versatility across media.
                 </p>
               </div>
               <div className="flex items-start">
-                <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                 <p className="text-slate-700">
-                  <strong className="text-slate-900">Scalability:</strong> Clean lines and strong shapes ensure legibility at any size
+                  <strong className="text-slate-900">Scalable & Responsive:</strong> Geometric precision ensures perfect clarity from favicon to billboard, with options for icon-only or full wordmark use.
+                </p>
+              </div>
+              <div className="flex items-start">
+                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                <p className="text-slate-700">
+                  <strong className="text-slate-900">Logistics Symbolism:</strong> Subtle references to containers, supply chains, global networks, and forward movement without literal imagery.
                 </p>
               </div>
             </div>
