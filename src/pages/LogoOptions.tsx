@@ -1,28 +1,37 @@
 import { motion } from 'framer-motion';
-import { Ship, Fuel, Globe, TrendingUp, Zap, Package } from 'lucide-react';
 import { fadeInUp } from '../utils/animations';
 
 export default function LogoOptions() {
   const logos = [
     {
       id: 1,
-      name: 'Global Connection',
-      description: 'Modern geometric design representing connectivity across continents',
+      name: 'Bold Lettermark',
+      description: 'Strong, professional lettermark with the A monogram representing authority and reliability',
       component: (
-        <div className="relative w-full h-64 flex items-center justify-center bg-gradient-to-br from-slate-900 to-slate-800">
-          <svg width="180" height="180" viewBox="0 0 180 180" className="drop-shadow-2xl">
-            <circle cx="90" cy="90" r="70" fill="none" stroke="#f59e0b" strokeWidth="4" opacity="0.3" />
-            <circle cx="90" cy="90" r="50" fill="none" stroke="#f59e0b" strokeWidth="4" opacity="0.5" />
+        <div className="relative w-full h-64 flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+          <svg width="220" height="180" viewBox="0 0 220 180">
+            <defs>
+              <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style={{ stopColor: '#fbbf24', stopOpacity: 1 }} />
+                <stop offset="100%" style={{ stopColor: '#d97706', stopOpacity: 1 }} />
+              </linearGradient>
+            </defs>
             <path
-              d="M 90 20 L 110 50 L 150 50 L 120 75 L 135 110 L 90 85 L 45 110 L 60 75 L 30 50 L 70 50 Z"
-              fill="#f59e0b"
+              d="M 70 100 L 90 40 L 110 100 M 75 85 L 105 85"
+              fill="none"
+              stroke="url(#goldGradient)"
+              strokeWidth="12"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
-            <circle cx="90" cy="90" r="15" fill="#fff" />
-            <text x="90" y="150" textAnchor="middle" fill="#f59e0b" fontSize="18" fontWeight="bold" fontFamily="system-ui">
-              EMBA
+            <text x="110" y="75" fill="#fbbf24" fontSize="24" fontWeight="900" fontFamily="Arial, sans-serif" letterSpacing="-1">
+              MIR
             </text>
-            <text x="90" y="168" textAnchor="middle" fill="#94a3b8" fontSize="12" fontFamily="system-ui">
-              TRANS-LINKS
+            <text x="70" y="125" textAnchor="start" fill="#fff" fontSize="11" fontWeight="600" fontFamily="Arial, sans-serif" letterSpacing="3">
+              AMIR & CO
+            </text>
+            <text x="70" y="140" textAnchor="start" fill="#94a3b8" fontSize="9" fontFamily="Arial, sans-serif" letterSpacing="2">
+              LOGISTICS
             </text>
           </svg>
         </div>
@@ -30,33 +39,31 @@ export default function LogoOptions() {
     },
     {
       id: 2,
-      name: 'Dynamic Routes',
-      description: 'Abstract representation of shipping routes and logistics pathways',
+      name: 'Classic Crest',
+      description: 'Traditional shield emblem design symbolizing trust and heritage in logistics',
       component: (
-        <div className="relative w-full h-64 flex items-center justify-center bg-gradient-to-br from-amber-500 to-amber-600">
-          <svg width="180" height="180" viewBox="0 0 180 180">
+        <div className="relative w-full h-64 flex items-center justify-center bg-white">
+          <svg width="200" height="180" viewBox="0 0 200 180">
+            <defs>
+              <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style={{ stopColor: '#1e293b', stopOpacity: 1 }} />
+                <stop offset="100%" style={{ stopColor: '#334155', stopOpacity: 1 }} />
+              </linearGradient>
+            </defs>
             <path
-              d="M 30 90 Q 60 30, 90 90 T 150 90"
-              fill="none"
-              stroke="#fff"
-              strokeWidth="8"
-              strokeLinecap="round"
-              opacity="0.8"
+              d="M 100 30 L 140 45 L 140 90 Q 140 120, 100 140 Q 60 120, 60 90 L 60 45 Z"
+              fill="url(#shieldGrad)"
+              stroke="#d97706"
+              strokeWidth="3"
             />
-            <path
-              d="M 30 110 Q 60 150, 90 110 T 150 110"
-              fill="none"
-              stroke="#fff"
-              strokeWidth="6"
-              strokeLinecap="round"
-              opacity="0.6"
-            />
-            <circle cx="30" cy="90" r="8" fill="#fff" />
-            <circle cx="90" cy="90" r="10" fill="#fff" />
-            <circle cx="150" cy="90" r="8" fill="#fff" />
-            <rect x="60" y="140" width="60" height="30" rx="4" fill="#1e293b" />
-            <text x="90" y="160" textAnchor="middle" fill="#fff" fontSize="16" fontWeight="bold" fontFamily="system-ui">
-              EMBA
+            <text x="100" y="85" textAnchor="middle" fill="#fbbf24" fontSize="42" fontWeight="900" fontFamily="Georgia, serif">
+              A
+            </text>
+            <text x="100" y="155" textAnchor="middle" fill="#1e293b" fontSize="14" fontWeight="700" fontFamily="Arial, sans-serif" letterSpacing="1">
+              AMIR & CO
+            </text>
+            <text x="100" y="170" textAnchor="middle" fill="#64748b" fontSize="9" fontFamily="Arial, sans-serif" letterSpacing="2">
+              LOGISTICS
             </text>
           </svg>
         </div>
@@ -64,84 +71,81 @@ export default function LogoOptions() {
     },
     {
       id: 3,
-      name: 'Hexagon Shield',
-      description: 'Strong geometric shape symbolizing reliability and security',
+      name: 'Modern Wordmark',
+      description: 'Clean, contemporary typography with geometric accent for modern appeal',
       component: (
-        <div className="relative w-full h-64 flex items-center justify-center bg-white">
-          <svg width="180" height="180" viewBox="0 0 180 180">
-            <defs>
-              <linearGradient id="hexGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style={{ stopColor: '#f59e0b', stopOpacity: 1 }} />
-                <stop offset="100%" style={{ stopColor: '#d97706', stopOpacity: 1 }} />
-              </linearGradient>
-            </defs>
-            <polygon
-              points="90,25 145,60 145,120 90,155 35,120 35,60"
-              fill="url(#hexGradient)"
-              stroke="#1e293b"
-              strokeWidth="3"
-            />
-            <polygon
-              points="90,45 125,65 125,105 90,125 55,105 55,65"
-              fill="#1e293b"
-              opacity="0.9"
-            />
-            <text x="90" y="90" textAnchor="middle" fill="#f59e0b" fontSize="32" fontWeight="bold" fontFamily="system-ui">
-              E
+        <div className="relative w-full h-64 flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100">
+          <div className="text-center">
+            <svg width="240" height="180" viewBox="0 0 240 180">
+              <rect x="20" y="55" width="8" height="45" fill="#d97706" rx="2" />
+              <rect x="32" y="45" width="8" height="55" fill="#f59e0b" rx="2" />
+              <rect x="44" y="35" width="8" height="65" fill="#fbbf24" rx="2" />
+
+              <text x="70" y="75" fill="#1e293b" fontSize="36" fontWeight="900" fontFamily="Arial, sans-serif" letterSpacing="-2">
+                AMIR
+              </text>
+              <text x="70" y="95" fill="#64748b" fontSize="18" fontWeight="600" fontFamily="Arial, sans-serif" letterSpacing="1">
+                & CO
+              </text>
+              <rect x="70" y="105" width="100" height="3" fill="#f59e0b" />
+              <text x="70" y="125" fill="#475569" fontSize="11" fontWeight="600" fontFamily="Arial, sans-serif" letterSpacing="4">
+                LOGISTICS
+              </text>
+            </svg>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: 4,
+      name: 'Cargo Container',
+      description: 'Iconic shipping container design representing global trade and logistics',
+      component: (
+        <div className="relative w-full h-64 flex items-center justify-center bg-gradient-to-br from-blue-900 to-slate-900">
+          <svg width="240" height="180" viewBox="0 0 240 180">
+            <rect x="60" y="50" width="120" height="60" fill="#1e293b" stroke="#f59e0b" strokeWidth="4" rx="3" />
+            <line x1="60" y1="70" x2="180" y2="70" stroke="#475569" strokeWidth="2" />
+            <line x1="60" y1="90" x2="180" y2="90" stroke="#475569" strokeWidth="2" />
+            <line x1="90" y1="50" x2="90" y2="110" stroke="#475569" strokeWidth="2" />
+            <line x1="120" y1="50" x2="120" y2="110" stroke="#475569" strokeWidth="2" />
+            <line x1="150" y1="50" x2="150" y2="110" stroke="#475569" strokeWidth="2" />
+
+            <text x="120" y="85" textAnchor="middle" fill="#fbbf24" fontSize="20" fontWeight="900" fontFamily="Arial, sans-serif" letterSpacing="2">
+              AMIR
             </text>
-            <text x="90" y="105" textAnchor="middle" fill="#94a3b8" fontSize="10" fontFamily="system-ui" letterSpacing="2">
-              TRANS-LINKS
+
+            <text x="120" y="135" textAnchor="middle" fill="#fff" fontSize="13" fontWeight="700" fontFamily="Arial, sans-serif" letterSpacing="2">
+              AMIR & CO
+            </text>
+            <text x="120" y="150" textAnchor="middle" fill="#94a3b8" fontSize="9" fontFamily="Arial, sans-serif" letterSpacing="2">
+              LOGISTICS
             </text>
           </svg>
         </div>
       ),
     },
     {
-      id: 4,
-      name: 'Shipping Forward',
-      description: 'Clean design with forward-moving ship silhouette',
-      component: (
-        <div className="relative w-full h-64 flex items-center justify-center bg-slate-900">
-          <div className="text-center">
-            <div className="flex items-center justify-center mb-4">
-              <div className="relative">
-                <div className="w-20 h-20 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl rotate-45 absolute top-0 left-0"></div>
-                <Ship className="w-10 h-10 text-white relative z-10 ml-5 mt-5" strokeWidth={2.5} />
-              </div>
-            </div>
-            <div className="text-white">
-              <div className="text-3xl font-bold tracking-tight">EMBA</div>
-              <div className="text-sm text-amber-500 font-semibold tracking-widest mt-1">TRANS-LINKS LTD</div>
-              <div className="w-24 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto mt-3"></div>
-            </div>
-          </div>
-        </div>
-      ),
-    },
-    {
       id: 5,
-      name: 'Interconnected Network',
-      description: 'Modern network visualization representing global logistics',
+      name: 'Arrow Forward',
+      description: 'Dynamic arrow design representing forward movement and progress',
       component: (
-        <div className="relative w-full h-64 flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100">
-          <svg width="200" height="180" viewBox="0 0 200 180">
-            <line x1="40" y1="60" x2="80" y2="90" stroke="#f59e0b" strokeWidth="3" opacity="0.6" />
-            <line x1="160" y1="60" x2="120" y2="90" stroke="#f59e0b" strokeWidth="3" opacity="0.6" />
-            <line x1="80" y1="90" x2="120" y2="90" stroke="#f59e0b" strokeWidth="4" />
-            <line x1="100" y1="40" x2="100" y2="90" stroke="#f59e0b" strokeWidth="3" opacity="0.6" />
-
-            <circle cx="40" cy="60" r="8" fill="#1e293b" stroke="#f59e0b" strokeWidth="2" />
-            <circle cx="160" cy="60" r="8" fill="#1e293b" stroke="#f59e0b" strokeWidth="2" />
-            <circle cx="100" cy="40" r="8" fill="#1e293b" stroke="#f59e0b" strokeWidth="2" />
-            <circle cx="80" cy="90" r="10" fill="#f59e0b" />
-            <circle cx="120" cy="90" r="10" fill="#f59e0b" />
-
-            <rect x="50" y="120" width="100" height="40" rx="6" fill="#1e293b" />
-            <text x="100" y="140" textAnchor="middle" fill="#f59e0b" fontSize="20" fontWeight="bold" fontFamily="system-ui">
-              EMBA
+        <div className="relative w-full h-64 flex items-center justify-center bg-white">
+          <svg width="220" height="180" viewBox="0 0 220 180">
+            <defs>
+              <linearGradient id="arrowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style={{ stopColor: '#d97706', stopOpacity: 1 }} />
+                <stop offset="100%" style={{ stopColor: '#fbbf24', stopOpacity: 1 }} />
+              </linearGradient>
+            </defs>
+            <path
+              d="M 50 70 L 120 70 L 120 50 L 160 85 L 120 120 L 120 100 L 50 100 Z"
+              fill="url(#arrowGrad)"
+            />
+            <text x="110" y="142" textAnchor="middle" fill="#1e293b" fontSize="18" fontWeight="900" fontFamily="Arial, sans-serif" letterSpacing="2">
+              AMIR & CO
             </text>
-            <text x="100" y="154" textAnchor="middle" fill="#94a3b8" fontSize="10" fontFamily="system-ui" letterSpacing="1">
-              TRANS-LINKS
+            <text x="110" y="160" textAnchor="middle" fill="#64748b" fontSize="10" fontFamily="Arial, sans-serif" letterSpacing="3">
+              LOGISTICS
             </text>
           </svg>
         </div>
@@ -149,30 +153,34 @@ export default function LogoOptions() {
     },
     {
       id: 6,
-      name: 'Minimal Lettermark',
-      description: 'Sophisticated monogram design with elegant typography',
+      name: 'Circle Badge',
+      description: 'Professional circular badge design with established company feel',
       component: (
-        <div className="relative w-full h-64 flex items-center justify-center bg-white">
+        <div className="relative w-full h-64 flex items-center justify-center bg-gradient-to-br from-slate-900 to-slate-800">
           <svg width="200" height="180" viewBox="0 0 200 180">
-            <defs>
-              <linearGradient id="letterGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" style={{ stopColor: '#1e293b', stopOpacity: 1 }} />
-                <stop offset="100%" style={{ stopColor: '#334155', stopOpacity: 1 }} />
-              </linearGradient>
-            </defs>
+            <circle cx="100" cy="85" r="60" fill="none" stroke="#fbbf24" strokeWidth="5" />
+            <circle cx="100" cy="85" r="52" fill="none" stroke="#f59e0b" strokeWidth="2" opacity="0.4" />
 
-            <rect x="60" y="50" width="80" height="80" rx="12" fill="url(#letterGradient)" />
-            <rect x="65" y="55" width="70" height="70" rx="8" fill="none" stroke="#f59e0b" strokeWidth="2" opacity="0.4" />
-
-            <text x="100" y="105" textAnchor="middle" fill="#f59e0b" fontSize="52" fontWeight="900" fontFamily="system-ui">
-              E
+            <text x="100" y="75" textAnchor="middle" fill="#fbbf24" fontSize="32" fontWeight="900" fontFamily="Arial, sans-serif">
+              AMIR
+            </text>
+            <text x="100" y="92" textAnchor="middle" fill="#fff" fontSize="14" fontWeight="600" fontFamily="Arial, sans-serif" letterSpacing="1">
+              & CO
             </text>
 
-            <text x="100" y="150" textAnchor="middle" fill="#1e293b" fontSize="14" fontWeight="600" fontFamily="system-ui" letterSpacing="3">
-              EMBA
+            <path
+              d="M 60 105 Q 100 108, 140 105"
+              fill="none"
+              stroke="#f59e0b"
+              strokeWidth="2"
+            />
+
+            <text x="100" y="120" textAnchor="middle" fill="#94a3b8" fontSize="9" fontFamily="Arial, sans-serif" letterSpacing="2">
+              LOGISTICS
             </text>
-            <text x="100" y="165" textAnchor="middle" fill="#64748b" fontSize="9" fontFamily="system-ui" letterSpacing="2">
-              TRANS-LINKS LTD
+
+            <text x="100" y="160" textAnchor="middle" fill="#64748b" fontSize="8" fontFamily="Arial, sans-serif" letterSpacing="1">
+              AMIR ENTERPRISES LTD
             </text>
           </svg>
         </div>
@@ -180,26 +188,29 @@ export default function LogoOptions() {
     },
     {
       id: 7,
-      name: 'Compass & Globe',
-      description: 'Navigation-inspired design representing global reach',
+      name: 'Globe Routes',
+      description: 'World map with connecting routes symbolizing international logistics network',
       component: (
-        <div className="relative w-full h-64 flex items-center justify-center bg-gradient-to-br from-amber-50 to-orange-50">
-          <svg width="200" height="180" viewBox="0 0 200 180">
-            <circle cx="100" cy="80" r="50" fill="none" stroke="#1e293b" strokeWidth="3" />
-            <circle cx="100" cy="80" r="45" fill="none" stroke="#f59e0b" strokeWidth="1" opacity="0.4" />
+        <div className="relative w-full h-64 flex items-center justify-center bg-gradient-to-br from-blue-50 to-slate-50">
+          <svg width="220" height="180" viewBox="0 0 220 180">
+            <circle cx="110" cy="70" r="45" fill="none" stroke="#334155" strokeWidth="3" />
+            <ellipse cx="110" cy="70" rx="45" ry="20" fill="none" stroke="#334155" strokeWidth="2" opacity="0.3" />
+            <ellipse cx="110" cy="70" rx="20" ry="45" fill="none" stroke="#334155" strokeWidth="2" opacity="0.3" />
+            <line x1="110" y1="25" x2="110" y2="115" stroke="#334155" strokeWidth="1" opacity="0.3" />
+            <line x1="65" y1="70" x2="155" y2="70" stroke="#334155" strokeWidth="1" opacity="0.3" />
 
-            <path d="M 100 35 L 105 75 L 100 80 L 95 75 Z" fill="#f59e0b" />
-            <path d="M 100 125 L 105 85 L 100 80 L 95 85 Z" fill="#1e293b" opacity="0.6" />
-            <path d="M 55 80 L 95 85 L 100 80 L 95 75 Z" fill="#1e293b" opacity="0.6" />
-            <path d="M 145 80 L 105 75 L 100 80 L 105 85 Z" fill="#f59e0b" />
+            <circle cx="90" cy="55" r="3" fill="#f59e0b" />
+            <circle cx="130" cy="85" r="3" fill="#f59e0b" />
+            <circle cx="110" cy="70" r="3" fill="#d97706" />
 
-            <circle cx="100" cy="80" r="6" fill="#1e293b" />
+            <path d="M 90 55 Q 100 62, 110 70" fill="none" stroke="#f59e0b" strokeWidth="2" strokeDasharray="2,2" />
+            <path d="M 110 70 Q 120 77, 130 85" fill="none" stroke="#f59e0b" strokeWidth="2" strokeDasharray="2,2" />
 
-            <text x="100" y="155" textAnchor="middle" fill="#1e293b" fontSize="18" fontWeight="bold" fontFamily="system-ui">
-              EMBA TRANS-LINKS
+            <text x="110" y="140" textAnchor="middle" fill="#1e293b" fontSize="18" fontWeight="900" fontFamily="Arial, sans-serif" letterSpacing="1">
+              AMIR & CO
             </text>
-            <text x="100" y="170" textAnchor="middle" fill="#f59e0b" fontSize="10" fontFamily="system-ui" letterSpacing="2">
-              LOGISTICS SOLUTIONS
+            <text x="110" y="156" textAnchor="middle" fill="#64748b" fontSize="10" fontFamily="Arial, sans-serif" letterSpacing="3">
+              LOGISTICS
             </text>
           </svg>
         </div>
@@ -224,7 +235,7 @@ export default function LogoOptions() {
           >
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">Logo Design Options</h1>
             <p className="text-lg sm:text-xl text-slate-300 leading-relaxed">
-              Carefully crafted logo concepts for Emba Trans-Links Ltd, reflecting your expertise in logistics, supply chain management, and global connectivity.
+              Professional logo concepts for Amir & Co: Logistics, reflecting your expertise in supply chain management, warehousing, and global trade.
             </p>
           </motion.div>
         </div>
