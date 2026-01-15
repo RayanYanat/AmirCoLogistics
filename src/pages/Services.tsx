@@ -41,7 +41,7 @@ export default function Services() {
       icon: Globe,
       title: 'China-Africa Trade & Import Solutions',
       description: 'Efficient LCL shared container services with transparent all-in pricing and quality control at source.',
-      image: 'https://images.pexels.com/photos/1427107/pexels-photo-1427107.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: 'https://images.pexels.com/photos/753331/pexels-photo-753331.jpeg?auto=compress&cs=tinysrgb&w=800',
       imageAlt: 'International shipping containers at port',
       features: [
         'Shared Container (LCL) model',
