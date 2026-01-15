@@ -291,8 +291,8 @@ export default function Warehousing() {
               className="order-2 lg:order-1"
             >
               <img
-                src="https://images.pexels.com/photos/4246209/pexels-photo-4246209.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                alt="Professional warehouse inventory and stock management"
+                src="https://images.pexels.com/photos/8985607/pexels-photo-8985607.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Modern warehouse facility with logistics operations and storage infrastructure"
                 className="w-full h-[350px] object-cover rounded-2xl shadow-2xl"
               />
             </motion.div>
