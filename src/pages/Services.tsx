@@ -25,7 +25,7 @@ export default function Services() {
       icon: Fuel,
       title: 'Fuel Supply & Energy Solutions',
       description: 'Specialized fuel supply chain management for telecom, industrial, and remote operations.',
-      image: 'https://images.pexels.com/photos/4254165/pexels-photo-4254165.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: 'https://images.pexels.com/photos/5207153/pexels-photo-5207153.jpeg?auto=compress&cs=tinysrgb&w=800',
       imageAlt: 'Fuel tanker truck and energy distribution logistics operations',
       features: [
         'Bulk and retail fuel supply',
