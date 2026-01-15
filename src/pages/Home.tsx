@@ -166,9 +166,10 @@ export default function Home() {
               className="order-2 lg:order-1"
             >
               <img
-                src="https://images.pexels.com/photos/163726/belgium-antwerp-port-163726.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                alt="International shipping operations"
+                src="https://images.pexels.com/photos/262353/pexels-photo-262353.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Global container shipping and international logistics network"
                 className="w-full h-[400px] object-cover rounded-2xl shadow-2xl"
+                loading="lazy"
               />
             </motion.div>
             <motion.div
