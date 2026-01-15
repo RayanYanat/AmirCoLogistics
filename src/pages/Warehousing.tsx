@@ -275,8 +275,8 @@ export default function Warehousing() {
               variants={fadeInRight}
             >
               <img
-                src="https://images.pexels.com/photos/1267360/pexels-photo-1267360.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                alt="Freight transport and distribution operations"
+                src="https://images.pexels.com/photos/1427107/pexels-photo-1427107.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Long haul freight truck for regional distribution"
                 className="w-full h-[350px] object-cover rounded-2xl shadow-2xl"
               />
             </motion.div>
@@ -291,8 +291,8 @@ export default function Warehousing() {
               className="order-2 lg:order-1"
             >
               <img
-                src="https://images.pexels.com/photos/6169668/pexels-photo-6169668.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                alt="Inventory management and warehouse operations"
+                src="https://images.pexels.com/photos/4246209/pexels-photo-4246209.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Professional warehouse inventory and stock management"
                 className="w-full h-[350px] object-cover rounded-2xl shadow-2xl"
               />
             </motion.div>

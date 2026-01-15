@@ -45,16 +45,17 @@ export default function Home() {
   return (
     <div className="overflow-x-hidden">
       <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 z-0">
           <img
-            src="https://images.pexels.com/photos/906982/pexels-photo-906982.jpeg?auto=compress&cs=tinysrgb&w=1920"
-            alt="Container port operations"
-            className="w-full h-full object-cover opacity-20"
+            src="https://images.pexels.com/photos/2226458/pexels-photo-2226458.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080"
+            alt="International container shipping and logistics operations"
+            className="w-full h-full object-cover opacity-30"
+            loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900/95 via-slate-800/90 to-slate-900/95"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-slate-800/85 to-slate-900/90"></div>
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 md:py-32">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 md:py-32">
           <div className="text-center max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
