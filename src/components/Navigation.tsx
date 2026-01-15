@@ -13,7 +13,6 @@ export default function Navigation() {
     { name: 'Services', path: '/services' },
     { name: 'Warehousing', path: '/warehousing' },
     { name: 'Experience', path: '/experience' },
-    { name: 'Logo Options', path: '/logos' },
     { name: 'Contact', path: '/contact' },
   ];
 
