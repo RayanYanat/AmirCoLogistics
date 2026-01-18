@@ -1,4 +1,4 @@
-import { Package, Mail, MapPin, Phone } from 'lucide-react';
+import { Mail, MapPin, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
@@ -7,14 +7,23 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center space-x-3 mb-4">
-              <Package className="h-8 w-8 text-amber-500" />
+            <Link to="/" className="flex items-center space-x-3 mb-6 group w-fit">
+              <div className="relative">
+                <div className="absolute inset-0 bg-amber-500/20 blur-xl rounded-full group-hover:bg-amber-500/30 transition-all duration-300"></div>
+                <img
+                  src="/logo_2.0.svg"
+                  alt="Amir & Co Logistics"
+                  className="h-12 w-12 object-contain relative z-10 group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
               <div>
-                <div className="text-xl font-bold text-white">AMIR & CO: LOGISTICS</div>
+                <div className="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">
+                  AMIR & CO: LOGISTICS
+                </div>
                 <div className="text-xs text-slate-400">Amir Enterprises Ltd</div>
               </div>
-            </div>
-            <p className="text-sm leading-relaxed mb-4">
+            </Link>
+            <p className="text-sm leading-relaxed mb-6 text-slate-300 max-w-md">
               End-to-End Logistics & Supply Chain Solutions Connecting China to Africa.
               Trusted partner since 2016 for corporations, governments, and NGOs.
             </p>
