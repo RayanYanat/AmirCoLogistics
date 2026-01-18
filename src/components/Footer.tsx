@@ -17,7 +17,7 @@ export default function Footer() {
                 />
               </div>
               <div>
-                <div className="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">
+                <div className="text-xl font-bold text-slate-300 group-hover:text-slate-100 transition-colors">
                   AMIR & CO: LOGISTICS
                 </div>
                 <div className="text-xs text-slate-400">Amir Enterprises Ltd</div>
