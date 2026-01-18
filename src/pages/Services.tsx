@@ -57,7 +57,7 @@ export default function Services() {
       icon: Warehouse,
       title: 'Warehousing & Distribution',
       description: 'Strategic warehousing facilities across China, Kenya, and South Sudan with comprehensive value-added services.',
-      image: 'https://images.pexels.com/photos/4483610/pexels-photo-4483610.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: 'https://images.pexels.com/photos/4393426/pexels-photo-4393426.jpeg?auto=compress&cs=tinysrgb&w=800',
       imageAlt: 'Modern warehouse facility with organized inventory',
       features: [
         'Multiple locations (China, Kenya, South Sudan)',
