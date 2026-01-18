@@ -275,8 +275,8 @@ export default function Warehousing() {
               variants={fadeInRight}
             >
               <img
-                src="https://images.pexels.com/photos/1169764/pexels-photo-1169764.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                alt="Heavy-duty industrial trucks for large-scale operations"
+                src="https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg"
+                alt="Aerial view of trucks in parking lot"
                 className="w-full h-[350px] object-cover rounded-2xl shadow-2xl"
               />
             </motion.div>
