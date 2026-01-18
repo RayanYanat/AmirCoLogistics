@@ -96,7 +96,7 @@ export default function Warehousing() {
             className="mb-12 sm:mb-16"
           >
             <img
-              src="https://images.pexels.com/photos/5156696/pexels-photo-5156696.jpeg?auto=compress&cs=tinysrgb&w=1600"
+              src="https://images.pexels.com/photos/1427541/pexels-photo-1427541.jpeg?auto=compress&cs=tinysrgb&w=1600"
               alt="Modern warehouse facility with organized logistics"
               className="w-full h-[400px] object-cover rounded-2xl shadow-2xl"
             />
