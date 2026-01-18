@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Package } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navigation() {
@@ -23,8 +23,12 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 sm:h-20">
           <Link to="/" className="flex items-center space-x-2 sm:space-x-3 group">
-            <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }}>
-              <Package className="h-7 w-7 sm:h-8 sm:w-8 text-amber-500 group-hover:text-amber-400 transition-colors" />
+            <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
+              <img
+                src="/logo_2.0.svg"
+                alt="Amir & Co Logistics Logo"
+                className="h-10 w-10 sm:h-12 sm:w-12 object-contain"
+              />
             </motion.div>
             <div>
               <div className="text-base sm:text-xl font-bold tracking-tight">AMIR & CO: LOGISTICS</div>
