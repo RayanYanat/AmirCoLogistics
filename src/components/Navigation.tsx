@@ -31,7 +31,7 @@ export default function Navigation() {
               />
             </motion.div>
             <div>
-              <div className="text-lg sm:text-2xl font-bold tracking-tight text-white group-hover:text-amber-500 transition-colors">AMIR & CO: LOGISTICS</div>
+              <div className="text-lg sm:text-2xl font-bold tracking-tight text-slate-300 group-hover:text-slate-100 transition-colors">AMIR & CO: LOGISTICS</div>
               <div className="text-xs sm:text-sm text-slate-400 hidden sm:block">Amir Enterprises Ltd</div>
             </div>
           </Link>
