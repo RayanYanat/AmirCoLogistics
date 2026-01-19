@@ -21,18 +21,18 @@ export default function Navigation() {
   return (
     <nav className="bg-slate-900 text-white sticky top-0 z-50 shadow-lg backdrop-blur-sm bg-opacity-95">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 sm:h-20">
+        <div className="flex justify-between items-center h-20 sm:h-24">
           <Link to="/" className="flex items-center space-x-2 sm:space-x-3 group">
             <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
               <img
                 src="/logo_2.0.svg"
                 alt="Amir & Co Logistics Logo"
-                className="h-10 w-10 sm:h-12 sm:w-12 object-contain"
+                className="h-12 w-12 sm:h-16 sm:w-16 object-contain"
               />
             </motion.div>
             <div>
-              <div className="text-base sm:text-xl font-bold tracking-tight text-slate-300 group-hover:text-slate-100 transition-colors">AMIR & CO: LOGISTICS</div>
-              <div className="text-xs text-slate-400 hidden sm:block">Amir Enterprises Ltd</div>
+              <div className="text-lg sm:text-2xl font-bold tracking-tight text-white group-hover:text-amber-500 transition-colors">AMIR & CO: LOGISTICS</div>
+              <div className="text-xs sm:text-sm text-slate-400 hidden sm:block">Amir Enterprises Ltd</div>
             </div>
           </Link>
 
