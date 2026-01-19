@@ -23,7 +23,21 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20 sm:h-24">
           <Link to="/" className="flex items-center space-x-2 sm:space-x-3 group">
-            <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
+            <motion.div
+              initial={{ rotate: -180, opacity: 0, scale: 0.5 }}
+              animate={{ rotate: 0, opacity: 1, scale: 1 }}
+              transition={{
+                duration: 0.8,
+                ease: "easeOut",
+                type: "spring",
+                stiffness: 100
+              }}
+              whileHover={{
+                scale: 1.1,
+                rotate: 5,
+                transition: { duration: 0.3 }
+              }}
+            >
               <img
                 src="/logo_2.0.svg"
                 alt="Amir & Co Logistics Logo"
@@ -31,8 +45,30 @@ export default function Navigation() {
               />
             </motion.div>
             <div>
-              <div className="text-lg sm:text-2xl font-bold tracking-tight text-slate-300 group-hover:text-slate-100 transition-colors">AMIR & CO: LOGISTICS</div>
-              <div className="text-xs sm:text-sm text-slate-400 hidden sm:block">Amir Enterprises Ltd</div>
+              <motion.div
+                initial={{ x: -30, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.3,
+                  ease: "easeOut"
+                }}
+                className="text-lg sm:text-2xl font-bold tracking-tight text-slate-300 group-hover:text-slate-100 transition-colors"
+              >
+                AMIR & CO: LOGISTICS
+              </motion.div>
+              <motion.div
+                initial={{ x: -30, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.5,
+                  ease: "easeOut"
+                }}
+                className="text-xs sm:text-sm text-slate-400 hidden sm:block"
+              >
+                Amir Enterprises Ltd
+              </motion.div>
             </div>
           </Link>
 
