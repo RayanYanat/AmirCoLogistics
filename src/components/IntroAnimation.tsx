@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plane, Ship } from 'lucide-react';
 
 interface IntroAnimationProps {
   onComplete: () => void;
@@ -35,63 +34,6 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
             className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-amber-500/20 via-transparent to-transparent"
           />
 
-          <motion.div
-            initial={{ x: -200, y: 100, opacity: 0, rotate: -15 }}
-            animate={{
-              x: [null, 100, 400, 600],
-              y: [null, 80, 60, 40],
-              opacity: [0, 1, 1, 0],
-              rotate: [-15, -5, 0, 5]
-            }}
-            transition={{
-              duration: 2.8,
-              times: [0, 0.3, 0.7, 1],
-              ease: "easeInOut"
-            }}
-            className="absolute top-1/3 left-0"
-          >
-            <Ship className="w-12 h-12 sm:w-16 sm:h-16 text-amber-400" strokeWidth={1.5} />
-            <motion.div
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: [0, 1, 1, 0] }}
-              transition={{
-                duration: 2.8,
-                times: [0, 0.3, 0.7, 1]
-              }}
-              className="absolute -bottom-2 left-0 h-0.5 w-24 bg-gradient-to-r from-transparent via-amber-400/50 to-transparent origin-left"
-            />
-          </motion.div>
-
-          <motion.div
-            initial={{ x: 400, y: -150, opacity: 0, rotate: 135 }}
-            animate={{
-              x: [null, 100, -200, -500],
-              y: [null, -80, 20, 120],
-              opacity: [0, 1, 1, 0],
-              rotate: [135, 140, 145, 150]
-            }}
-            transition={{
-              duration: 3,
-              times: [0, 0.25, 0.7, 1],
-              ease: "easeInOut"
-            }}
-            className="absolute top-1/4 right-0"
-          >
-            <Plane className="w-14 h-14 sm:w-20 sm:h-20 text-blue-400" strokeWidth={1.5} />
-            <motion.div
-              animate={{
-                opacity: [0.3, 0.6, 0.3],
-                scale: [1, 1.2, 1]
-              }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="absolute inset-0 bg-blue-400/20 blur-xl rounded-full"
-            />
-          </motion.div>
-
           {[...Array(6)].map((_, i) => (
             <motion.div
               key={i}
@@ -124,7 +66,7 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
               times: [0, 0.6, 1],
               ease: [0.34, 1.56, 0.64, 1]
             }}
-            className="relative z-10"
+            className="relative z-10 flex flex-col items-center"
           >
             <motion.div
               animate={{
@@ -156,22 +98,46 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
                 duration: 0.8,
                 ease: "easeOut"
               }}
-              className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-48 sm:w-64 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent origin-center"
+              className="mt-8 w-72 sm:w-96 h-0.5 bg-gradient-to-r from-transparent via-amber-500 to-transparent origin-center"
             />
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: [0, 1, 1, 0], y: [20, 0, 0, -10] }}
+              animate={{ opacity: [0, 1, 1], y: [20, 0, 0] }}
               transition={{
-                duration: 3,
+                duration: 1.5,
                 delay: 1.3,
-                times: [0, 0.3, 0.8, 1]
+                times: [0, 0.4, 1]
               }}
-              className="absolute -bottom-20 left-1/2 -translate-x-1/2 whitespace-nowrap"
+              className="mt-8 text-center"
             >
-              <span className="text-amber-400 text-lg sm:text-xl font-light tracking-[0.3em]">
-                LOGISTICS
-              </span>
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{
+                  delay: 1.5,
+                  duration: 0.8,
+                  ease: "easeOut"
+                }}
+                className="text-3xl sm:text-5xl font-bold mb-2"
+              >
+                <span className="bg-gradient-to-r from-amber-400 via-amber-500 to-amber-400 bg-clip-text text-transparent">
+                  AMIR & CO
+                </span>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{
+                  delay: 1.8,
+                  duration: 0.8,
+                  ease: "easeOut"
+                }}
+                className="text-xl sm:text-3xl font-light tracking-[0.3em]"
+              >
+                <span className="text-blue-400">LOGISTICS</span>
+              </motion.div>
             </motion.div>
           </motion.div>
 
