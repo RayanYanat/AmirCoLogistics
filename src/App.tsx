@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navigation from './components/Navigation';
@@ -15,18 +15,9 @@ function App() {
   const [showIntro, setShowIntro] = useState(true);
   const [hasSeenIntro, setHasSeenIntro] = useState(false);
 
-  useEffect(() => {
-    const introSeen = sessionStorage.getItem('introSeen');
-    if (introSeen) {
-      setShowIntro(false);
-      setHasSeenIntro(true);
-    }
-  }, []);
-
   const handleIntroComplete = () => {
     setShowIntro(false);
     setHasSeenIntro(true);
-    sessionStorage.setItem('introSeen', 'true');
   };
 
   return (
