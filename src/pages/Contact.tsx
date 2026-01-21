@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer, staggerItem } from '../utils/animations';
-import { supabase } from '../lib/supabase';
+import { db } from '../lib/database';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -29,10 +29,10 @@ export default function Contact() {
         message: formData.message.trim(),
       };
 
-      const { error } = await supabase.from('contact_submissions').insert([submission]);
+      const { error } = await db.from('contact_submissions').insert([submission]);
 
       if (error) {
-        console.error('Supabase error:', error);
+        console.error('Database error:', error);
         throw new Error(error.message || 'Failed to submit form');
       }
 
