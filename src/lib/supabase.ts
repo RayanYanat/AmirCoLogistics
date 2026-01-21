@@ -41,15 +41,14 @@ export async function submitContactForm(data: ContactSubmission) {
     message: trimmedMessage,
   };
 
-  const { data: result, error } = await supabase
+  const { error } = await supabase
     .from('contact_submissions')
-    .insert([payload])
-    .select();
+    .insert([payload]);
 
   if (error) {
     console.error('Supabase error:', error);
     throw new Error(error.message || 'Failed to submit form');
   }
 
-  return result;
+  return true;
 }
