@@ -18,22 +18,33 @@ export interface ContactSubmission {
 }
 
 export async function submitContactForm(data: ContactSubmission) {
-  const trimmedCompany = data.company?.trim() || '';
-  const trimmedPhone = data.phone?.trim() || '';
+  const trimmedName = data.name.trim();
+  const trimmedEmail = data.email.trim();
+  const trimmedCompany = data.company?.trim();
+  const trimmedPhone = data.phone?.trim();
+  const trimmedMessage = data.message.trim();
 
-  const { error } = await supabase
+  if (!trimmedName || !trimmedEmail || !trimmedMessage) {
+    throw new Error('Name, email, and message are required');
+  }
+
+  const payload = {
+    name: trimmedName,
+    email: trimmedEmail,
+    company: trimmedCompany || null,
+    phone: trimmedPhone || null,
+    message: trimmedMessage,
+  };
+
+  const { data: result, error } = await supabase
     .from('contact_submissions')
-    .insert([
-      {
-        name: data.name.trim(),
-        email: data.email.trim(),
-        company: trimmedCompany,
-        phone: trimmedPhone,
-        message: data.message.trim(),
-      },
-    ]);
+    .insert([payload])
+    .select();
 
   if (error) {
-    throw error;
+    console.error('Supabase error:', error);
+    throw new Error(error.message || 'Failed to submit form');
   }
+
+  return result;
 }
