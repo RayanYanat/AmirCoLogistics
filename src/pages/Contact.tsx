@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer, staggerItem } from '../utils/animations';
-import { supabase } from '../lib/supabase';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -13,33 +12,27 @@ export default function Contact() {
     message: '',
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState<string>('');
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('loading');
+    setErrorMessage('');
 
-    try {
-      const { error } = await supabase.from('contact_submissions').insert([
-        {
-          name: formData.name,
-          email: formData.email,
-          company: formData.company,
-          phone: formData.phone,
-          message: formData.message,
-        },
-      ]);
-
-      if (error) throw error;
+    setTimeout(() => {
+      console.log('Form submission:', {
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        company: formData.company.trim(),
+        phone: formData.phone.trim(),
+        message: formData.message.trim(),
+      });
 
       setStatus('success');
       setFormData({ name: '', email: '', company: '', phone: '', message: '' });
 
       setTimeout(() => setStatus('idle'), 5000);
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setStatus('error');
-      setTimeout(() => setStatus('idle'), 5000);
-    }
+    }, 1000);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -178,11 +171,17 @@ export default function Contact() {
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="mb-6 bg-red-50 border border-red-200 rounded-lg p-4"
+                    className="mb-6 bg-red-50 border border-red-200 rounded-lg p-4 flex items-start"
                   >
-                    <p className="text-red-800 text-sm sm:text-base">
-                      There was an error submitting your message. Please try again.
-                    </p>
+                    <AlertCircle className="h-5 w-5 text-red-600 mr-3 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="text-red-800 text-sm sm:text-base font-semibold mb-1">
+                        Submission Failed
+                      </p>
+                      <p className="text-red-700 text-xs sm:text-sm">
+                        {errorMessage || 'There was an error submitting your message. Please try again.'}
+                      </p>
+                    </div>
                   </motion.div>
                 )}
 
