@@ -3,7 +3,6 @@ import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-reac
 import { motion } from 'framer-motion';
 import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer, staggerItem } from '../utils/animations';
 import { supabase } from '../lib/supabase';
-import type { ContactSubmissionInsert } from '../lib/types/database';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -22,7 +21,7 @@ export default function Contact() {
     setErrorMessage('');
 
     try {
-      const submission: ContactSubmissionInsert = {
+      const submission = {
         name: formData.name.trim(),
         email: formData.email.trim(),
         company: formData.company.trim() || null,
