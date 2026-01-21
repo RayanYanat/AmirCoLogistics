@@ -18,8 +18,8 @@ export interface ContactSubmission {
 }
 
 export async function submitContactForm(data: ContactSubmission) {
-  const trimmedCompany = data.company?.trim();
-  const trimmedPhone = data.phone?.trim();
+  const trimmedCompany = data.company?.trim() || '';
+  const trimmedPhone = data.phone?.trim() || '';
 
   const { error } = await supabase
     .from('contact_submissions')
@@ -27,8 +27,8 @@ export async function submitContactForm(data: ContactSubmission) {
       {
         name: data.name.trim(),
         email: data.email.trim(),
-        company: trimmedCompany || null,
-        phone: trimmedPhone || null,
+        company: trimmedCompany,
+        phone: trimmedPhone,
         message: data.message.trim(),
       },
     ]);
