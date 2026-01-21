@@ -18,14 +18,17 @@ export interface ContactSubmission {
 }
 
 export async function submitContactForm(data: ContactSubmission) {
+  const trimmedCompany = data.company?.trim();
+  const trimmedPhone = data.phone?.trim();
+
   const { error } = await supabase
     .from('contact_submissions')
     .insert([
       {
         name: data.name.trim(),
         email: data.email.trim(),
-        company: data.company?.trim() || '',
-        phone: data.phone?.trim() || '',
+        company: trimmedCompany || null,
+        phone: trimmedPhone || null,
         message: data.message.trim(),
       },
     ]);
