@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer, staggerItem } from '../utils/animations';
-import { db } from '../lib/database';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -15,41 +14,25 @@ export default function Contact() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState<string>('');
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('loading');
     setErrorMessage('');
 
-    try {
-      const submission = {
+    setTimeout(() => {
+      console.log('Form submission:', {
         name: formData.name.trim(),
         email: formData.email.trim(),
-        company: formData.company.trim() || null,
-        phone: formData.phone.trim() || null,
+        company: formData.company.trim(),
+        phone: formData.phone.trim(),
         message: formData.message.trim(),
-      };
-
-      const { error } = await db.from('contact_submissions').insert([submission]);
-
-      if (error) {
-        console.error('Database error:', error);
-        throw new Error(error.message || 'Failed to submit form');
-      }
+      });
 
       setStatus('success');
       setFormData({ name: '', email: '', company: '', phone: '', message: '' });
 
       setTimeout(() => setStatus('idle'), 5000);
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      const message = error instanceof Error ? error.message : 'An unexpected error occurred. Please try again.';
-      setErrorMessage(message);
-      setStatus('error');
-      setTimeout(() => {
-        setStatus('idle');
-        setErrorMessage('');
-      }, 8000);
-    }
+    }, 1000);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
