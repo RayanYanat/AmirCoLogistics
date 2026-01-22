@@ -38,7 +38,7 @@ export default function Home() {
   const stats = [
     { value: 4, suffix: 'M+', label: 'Liters Delivered Annually' },
     { value: 200, suffix: '+', label: 'Operational Sites' },
-    { value: 8, suffix: '+', label: 'Years Experience' },
+    { value: 10, suffix: '+', label: 'Years Experience' },
     { value: 3, suffix: '', label: 'Countries Coverage' },
   ];
 
