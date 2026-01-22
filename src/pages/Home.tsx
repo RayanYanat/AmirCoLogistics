@@ -140,7 +140,7 @@ export default function Home() {
                 to="/contact"
                 className="inline-flex items-center justify-center px-8 sm:px-10 py-4 sm:py-5 bg-white/10 text-white font-semibold rounded-xl hover:bg-white/20 transform hover:scale-105 transition-all backdrop-blur-sm border-2 border-white/30 hover:border-white/50 text-sm sm:text-base shadow-lg"
               >
-                Let's Talk
+                Contact Us
               </Link>
             </motion.div>
           </div>
