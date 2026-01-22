@@ -61,9 +61,9 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="inline-block mb-6 px-4 py-2 bg-amber-500/10 border border-amber-500/20 rounded-full"
+              className="inline-block mb-6 px-6 py-2.5 bg-gradient-to-r from-amber-500/20 to-amber-600/20 border border-amber-500/30 rounded-full backdrop-blur-sm"
             >
-              <span className="text-amber-500 text-sm font-semibold">Since 2016</span>
+              <span className="text-amber-400 text-sm font-semibold tracking-wide">Your Trusted Partner Since 2016</span>
             </motion.div>
 
             <motion.h1
@@ -72,37 +72,75 @@ export default function Home() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight px-4"
             >
-              End-to-End Logistics & Supply Chain Solutions
-              <span className="block text-amber-500 mt-2">Connecting China to Africa</span>
+              <span className="bg-gradient-to-r from-white via-slate-100 to-white bg-clip-text text-transparent">
+                End-to-End Logistics &
+              </span>
+              <span className="block mt-2 bg-gradient-to-r from-white via-slate-100 to-white bg-clip-text text-transparent">
+                Supply Chain Solutions
+              </span>
+              <span className="block text-amber-400 mt-4 text-2xl sm:text-3xl md:text-4xl font-semibold">
+                Seamlessly Connecting China to Africa
+              </span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
-              className="text-lg sm:text-xl text-slate-300 mb-10 leading-relaxed max-w-3xl mx-auto px-4"
+              className="text-lg sm:text-xl text-slate-200 mb-8 leading-relaxed max-w-3xl mx-auto px-4"
             >
-              Secure your supply chain with reliable, efficient, and cost-effective logistics solutions.
-              Trusted partner for corporations, governments, and international organizations.
+              We're here to simplify your supply chain journey. From multimodal logistics to fuel supply,
+              we provide reliable, efficient, and cost-effective solutions tailored to your needs.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.6 }}
+              transition={{ duration: 0.7, delay: 0.5 }}
+              className="flex items-center justify-center gap-2 mb-10 px-4"
+            >
+              <div className="flex -space-x-2">
+                {[Shield, Globe, Award].map((Icon, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.6 + i * 0.1, duration: 0.3 }}
+                    className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center ring-2 ring-slate-800"
+                  >
+                    <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                  </motion.div>
+                ))}
+              </div>
+              <span className="text-sm sm:text-base text-slate-300 ml-2">
+                Trusted by corporations, governments, and international organizations
+              </span>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.7 }}
               className="flex flex-col sm:flex-row gap-4 justify-center px-4"
             >
               <Link
                 to="/services"
-                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-amber-500 text-white font-semibold rounded-lg hover:bg-amber-600 transform hover:scale-105 transition-all shadow-lg hover:shadow-xl text-sm sm:text-base"
+                className="group inline-flex items-center justify-center px-8 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-semibold rounded-xl hover:from-amber-600 hover:to-amber-700 transform hover:scale-105 transition-all shadow-xl hover:shadow-2xl text-sm sm:text-base"
               >
-                Our Services
+                Explore Our Services
+                <motion.span
+                  className="ml-2"
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+                >
+                  →
+                </motion.span>
               </Link>
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-white/10 text-white font-semibold rounded-lg hover:bg-white/20 transform hover:scale-105 transition-all backdrop-blur-sm border border-white/20 text-sm sm:text-base"
+                className="inline-flex items-center justify-center px-8 sm:px-10 py-4 sm:py-5 bg-white/10 text-white font-semibold rounded-xl hover:bg-white/20 transform hover:scale-105 transition-all backdrop-blur-sm border-2 border-white/30 hover:border-white/50 text-sm sm:text-base shadow-lg"
               >
-                Contact Us
+                Let's Talk
               </Link>
             </motion.div>
           </div>
