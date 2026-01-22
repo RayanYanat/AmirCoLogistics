@@ -21,7 +21,7 @@ export default function Experience() {
     },
     {
       icon: Building2,
-      metric: 8,
+      metric: 10,
       suffix: '+',
       label: 'Years Experience',
       description: 'Proven track record since 2016',
